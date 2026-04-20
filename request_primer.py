@@ -10,9 +10,15 @@ import primer3
 #         poster = session.post(website, data=parameters)
 #         with session.get(poster.url, stream=True) as getter:
 #             print(getter.text)
-   
-def main():
-    sequence_dna = "aaagaggagaaatactagatgaaaaacataaatgccgacgacacatacagaataattaataaaattaaagcttgtagaagcaataatgatattaatcaatgcttatctgatatgactaaaatggtacattgtgaatattatttactcgcgatcatttatcctcattctatggttaaatctgatatttcaatcctagataattaccctaaaaaatggaggcaatattatgatgacgctaatttaataaaatatgatcctatagtagattattctaactccaatcattcaccaattaattggaatatatttgaaaacaatgctgtaaataaaaaatctccaaatgtaattaaagaagcgaaaacatcaggtcttatcactgggtttagtttccctattcatacggctaacaatggcttcggaatgcttagttttgcacattcagaaaaagacaactatatagatagtttatttttacatgcgtgtatgaacataccattaattgttccttctctagttgataattatcgaaaaataaatatagcaaataataaatcaaacaacgatttaaccaaaagagaaaaagaatgtttagcgtgggcatgcgaaggaaaaagctcttgggatatttcaaaaatattaggttgcagtgagcgtactgtcactttccatttaaccaatgcgcaaatgaaactcaatacaacaaaccgctgccaaagtatttctaaagcaattttaacaggagcaattgattgcccatactttaaaaattaataacactgatagtgctagtgtagatcactactagagccaggcatcaaataaaacgaaaggctcagtcgaaagactgggcctttcgttttatctgttgtttgtcggtgaacgctctctactagagtcacactggctcaccttcgggtgggcctttctgcgtttata"
+
+def temperature(sequence_dna):
+    temp = primer3.bindings.calc_tm(sequence_dna)
+    return temp
+def time_tm(sequence_dna):
+    time = len(sequence_dna) / 1000
+    return time 
+
+def build_primers(sequence_dna):
     result = primer3.bindings.design_primers(
         {'SEQUENCE_TEMPLATE': sequence_dna},
         global_args = {'PRIMER_PRODUCT_SIZE_RANGE': [[70, 1000]],
@@ -20,10 +26,50 @@ def main():
         'PRIMER_MIN_TM': 57.0,
         'PRIMER_MAX_TM': 63.0,
         'PRIMER_MIN_GC': 40.0,
-        'PRIMER_MAX_GC': 60.0}
+        'PRIMER_MAX_GC': 60.0#,
+        #'PRIMER_NUM_RETURN': 10
+        }
     )
+    list_of_primers = [result['PRIMER_LEFT_0_SEQUENCE'],result['PRIMER_RIGHT_0_SEQUENCE']]
+    return list_of_primers
+def main():
+    
+    sequence_dna = "aaagaggagaaatactagatgaaaaacataaatgccgacgacacatacagaataattaataaaattaaagcttgtagaagcaataatgatattaatcaatgcttatctgatatgactaaaatggtacattgtgaatattatttactcgcgatcatttatcctcattctatggttaaatctgatatttcaatcctagataattaccctaaaaaatggaggcaatattatgatgacgctaatttaataaaatatgatcctatagtagattattctaactccaatcattcaccaattaattggaatatatttgaaaacaatgctgtaaataaaaaatctccaaatgtaattaaagaagcgaaaacatcaggtcttatcactgggtttagtttccctattcatacggctaacaatggcttcggaatgcttagttttgcacattcagaaaaagacaactatatagatagtttatttttacatgcgtgtatgaacataccattaattgttccttctctagttgataattatcgaaaaataaatatagcaaataataaatcaaacaacgatttaaccaaaagagaaaaagaatgtttagcgtgggcatgcgaaggaaaaagctcttgggatatttcaaaaatattaggttgcagtgagcgtactgtcactttccatttaaccaatgcgcaaatgaaactcaatacaacaaaccgctgccaaagtatttctaaagcaattttaacaggagcaattgattgcccatactttaaaaattaataacactgatagtgctagtgtagatcactactagagccaggcatcaaataaaacgaaaggctcagtcgaaagactgggcctttcgttttatctgttgtttgtcggtgaacgctctctactagagtcacactggctcaccttcgggtgggcctttctgcgtttata"
+    temp = temperature(sequence_dna)
+    print("Temp: ")
+    print(temp)
+    timer = time_tm(sequence_dna)
+    print("Time: ")
+    print(time_tm)
+    build = build_primers(sequence_dna)
+    print("Primers")
+    print(build)
 
     
+    # temp = primer3.bindings.calc_tm(sequence_dna)
+    # print("Temperature: ")
+    # print(temp)
+    # time = len(sequence_dna) / 1000
+    # print("Time: ")
+    # print(time)
+    # result = primer3.bindings.design_primers(
+    #     {'SEQUENCE_TEMPLATE': sequence_dna},
+    #     global_args = {'PRIMER_PRODUCT_SIZE_RANGE': [[70, 1000]],
+    #     'PRIMER_OPT_TM': 60.0,
+    #     'PRIMER_MIN_TM': 57.0,
+    #     'PRIMER_MAX_TM': 63.0,
+    #     'PRIMER_MIN_GC': 40.0,
+    #     'PRIMER_MAX_GC': 60.0#,
+    #     #'PRIMER_NUM_RETURN': 10
+    #     }
+    # )
+
+    # print(result['PRIMER_LEFT_0_SEQUENCE']) #optimized
+    # print(result['PRIMER_RIGHT_0_SEQUENCE']) #optimized. Can do Primer_Right_1_sequence to do next best
+    
+if __name__ == '__main__':
+    main()
+
     # result = primer3.bindings.design_primers(
     # seq_args={
     #     'SEQUENCE_ID': 'MH1000',
@@ -65,9 +111,5 @@ def main():
     #         [150,175], [175,200], [200,225]
     #     ],
     # })
-    print(result['PRIMER_LEFT_0_SEQUENCE'])
-    print(result['PRIMER_RIGHT_0_SEQUENCE'])
-
-if __name__ == '__main__':
-    main()
-
+    # print(result['PRIMER_PICK_LEFT_PRIMER'])
+    # print(result['PRIMER_PICK_RIGHT_PRIMER'])
