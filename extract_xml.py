@@ -20,7 +20,7 @@ def main():
     
     for dna in root.findall("default_ns:DnaComponent",ns):
 
-        count = 0;
+        count = 0
         #UNDO#print("Overall DNA") UNDO
         name = dna.find("default_ns:displayId",ns).text
         # # print(name)
@@ -31,8 +31,11 @@ def main():
         print(individual_dna)
         for elem in dna.iter():
             if elem is not dna:
-                # print(elem.tag)
-                
+                print(elem.tag)
+                if(elem.tag == "{http://sbols.org/v1#}DnaSequence"):
+                    nucleotides = elem.find("default_ns:nucleotides",ns).text
+                    individual_dna["Nucleotides"] = nucleotides
+                    # print(nucleotides)                
                 if (elem.tag == "{http://sbols.org/v1#}DnaComponent"):
                     count += 1;
                     name1 = elem.find("default_ns:displayId",ns).text
@@ -43,7 +46,7 @@ def main():
                     # print("Type: ", type(about_value))
                     part_about = about_value.split("Part:")
                     # print(f"Full Location: {part_about}") tested if properly split
-                    dna_part_code = part_about[-1];
+                    dna_part_code = part_about[-1]
                     
                     # ###print(dna_part_code)  CHECK IF NEED THIS PART (CREATE LOOP)
                     for specific_dna in elem:
@@ -57,7 +60,7 @@ def main():
                             #UNDO#print("rdf:resource =", resource_value)
                             # print("Type: ", type(resource_value))
                             part_resource = resource_value.split("/")
-                            dna_resource_code = part_resource[-1];
+                            dna_resource_code = part_resource[-1]
                             #UNDO#print(dna_resource_code)
                             individual_dna["Subcomponent"].append({"DisplayId": name1,
                                                                   "About" : dna_part_code,
