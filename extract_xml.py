@@ -32,8 +32,11 @@ def parse(xml_path, json_path):
         print(individual_dna)
         for elem in dna.iter():
             if elem is not dna:
-                # print(elem.tag)
-                
+                print(elem.tag)
+                if(elem.tag == "{http://sbols.org/v1#}DnaSequence"):
+                    nucleotides = elem.find("default_ns:nucleotides",ns).text
+                    individual_dna["Nucleotides"] = nucleotides
+                    # print(nucleotides)                
                 if (elem.tag == "{http://sbols.org/v1#}DnaComponent"):
                     count += 1
                     name1 = elem.find("default_ns:displayId",ns).text
