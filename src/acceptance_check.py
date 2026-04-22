@@ -32,7 +32,7 @@ from validate_circuit import validate
 from json_to_sbol3 import circuit_to_sbol3
 from topology import analyze_circuit
 
-BASE = os.path.dirname(os.path.abspath(__file__))
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "data")
 PASS = "PASS"
 FAIL = "FAIL"
 WARN = "WARN"

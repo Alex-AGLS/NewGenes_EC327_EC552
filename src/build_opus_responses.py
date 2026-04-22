@@ -1274,8 +1274,10 @@ def main():
     for entry in e.PROMPTS:
         obj = build_response(entry)
         out[entry["prompt"]] = json.dumps(obj, indent=2)
-    Path(HERE / "opus_responses.json").write_text(json.dumps(out, indent=2))
-    print(f"wrote {len(out)} responses to opus_responses.json")
+    out_path = HERE.parent / "results" / "opus_responses.json"
+    out_path.parent.mkdir(exist_ok=True)
+    out_path.write_text(json.dumps(out, indent=2))
+    print(f"wrote {len(out)} responses to {out_path}")
 
 
 if __name__ == "__main__":

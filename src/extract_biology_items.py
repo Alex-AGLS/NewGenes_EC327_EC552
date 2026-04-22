@@ -12,8 +12,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 TAG = sys.argv[1] if len(sys.argv) > 1 else "mac_mlx_q8_lora_fix"
-src = HERE / f"sbol_eval_v2_{TAG}.json"
-out = HERE / f"biology_review_{TAG}.json"
+src = HERE.parent / "results" / f"sbol_eval_v2_{TAG}.json"
+out = HERE.parent / "results" / f"biology_review_{TAG}.json"
 results = json.load(open(src))
 
 picks = []

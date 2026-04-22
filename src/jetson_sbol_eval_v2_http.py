@@ -18,8 +18,10 @@ spec = importlib.util.spec_from_file_location("sbol_eval_v2", str(HERE / "sbol_e
 e = importlib.util.module_from_spec(spec); spec.loader.exec_module(e)
 
 TAG = sys.argv[1] if len(sys.argv) > 1 else "run1"
-OUT_JSON = HERE / f"sbol_eval_v2_{TAG}.json"
-OUT_LOG = HERE / f"sbol_eval_v2_{TAG}.log"
+RESULTS = HERE.parent / "results"
+RESULTS.mkdir(exist_ok=True)
+OUT_JSON = RESULTS / f"sbol_eval_v2_{TAG}.json"
+OUT_LOG = RESULTS / f"sbol_eval_v2_{TAG}.log"
 URL = os.environ.get("LLAMA_URL", "http://localhost:8080/v1/chat/completions")
 MODEL = os.environ.get("LLAMA_MODEL", "qwen")
 TIMEOUT = int(os.environ.get("REQ_TIMEOUT", "1800"))

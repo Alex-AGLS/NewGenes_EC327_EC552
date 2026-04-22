@@ -119,7 +119,7 @@ def render(obj, title, out_path):
 
 if __name__ == "__main__":
     # Render top LoRA design: d5 CRISPRi inverter (idx 83, score 94)
-    r = json.load(open(HERE / "sbol_eval_v2_gemma_udq3km_lora.json"))
+    r = json.load(open(HERE.parent / "results" / "sbol_eval_v2_gemma_udq3km_lora.json"))
     for idx, tag in [(83, "crispri_inverter"), (97, "qs_consensus"), (90, "tumor_targeting")]:
         x = r[idx]
         obj = extract_json(x["response"])
@@ -127,4 +127,4 @@ if __name__ == "__main__":
             print(f"failed to parse entry {idx}", file=sys.stderr); continue
         title = f"{obj.get('name','?')}  —  score {x['score']['total']}/100"
         title += f"\n\"{x['entry']['prompt'][:110]}...\"" if len(x['entry']['prompt'])>110 else f"\n\"{x['entry']['prompt']}\""
-        render(obj, title, HERE / f"circuit_{tag}.png")
+        render(obj, title, HERE.parent / "newgenes-export-assets" / f"circuit_{tag}.png")

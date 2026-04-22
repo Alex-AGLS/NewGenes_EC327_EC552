@@ -21,9 +21,10 @@ HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location("sbol_eval_v2", str(HERE / "sbol_eval_v2.py"))
 e = importlib.util.module_from_spec(spec); spec.loader.exec_module(e)
 
-RESP_FILE = HERE / "opus_responses.json"
-OUT_JSON = HERE / "sbol_eval_v2_opus_47.json"
-OUT_LOG = HERE / "sbol_eval_v2_opus_47.log"
+RESULTS = HERE.parent / "results"
+RESP_FILE = RESULTS / "opus_responses.json"
+OUT_JSON = RESULTS / "sbol_eval_v2_opus_47.json"
+OUT_LOG = RESULTS / "sbol_eval_v2_opus_47.log"
 SUMMARY = OUT_JSON.with_suffix(".summary.json")
 
 

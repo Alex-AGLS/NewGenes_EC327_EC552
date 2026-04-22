@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "chart_efficiency.png"
+OUT = HERE.parent / "newgenes-export-assets" / "chart_efficiency.png"
+OUT.parent.mkdir(exist_ok=True)
 
 # [label, score, active_watts, color, note]
 # Active watts = power during inference, not idle

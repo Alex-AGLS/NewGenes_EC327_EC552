@@ -9,7 +9,7 @@ from pathlib import Path
 from collections import Counter
 
 HERE = Path(__file__).resolve().parent
-RESULTS = HERE / "results"
+RESULTS = HERE.parent / "results"
 spec = importlib.util.spec_from_file_location("e", HERE / "sbol_eval_v2.py")
 e = importlib.util.module_from_spec(spec); spec.loader.exec_module(e)
 

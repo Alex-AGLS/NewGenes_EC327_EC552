@@ -122,7 +122,8 @@ def select_relevant_exemplars(description, bank, n=2):
 
 
 if __name__ == '__main__':
-    base = '/Users/arlo/Newgenes/finetune'
+    import os
+    base = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "data")
     bank = build_bank(f'{base}/train.jsonl', f'{base}/exemplar_bank.json')
 
     # Demo: select exemplars for a test query

@@ -41,21 +41,22 @@ Full detail: [`newgenes-export.md`](./newgenes-export.md).
 ├── configs/                          ← LoRA training configs (lora_config_*.yaml)
 ├── data/                             ← train.jsonl, valid.jsonl, test.jsonl, demo_prompts.json, exemplar_bank.json
 ├── results/                          ← all eval results: sbol_eval_v2_*.json + .summary.json, biology_review_*.json
-│
-│── # --- Code at root (scripts expect sibling data/ results/ configs/) ---
-├── sbol_eval_v2.py                   ← deterministic 6-axis rubric scorer (the core artifact)
-├── train.py                          ← MLX QLoRA training entry (bf16 patch + mlx_lm.lora)
-├── infer.py, prepare_mlx.py          ← inference + MLX data prep
-├── plot_tco.py, plot_efficiency.py   ← cost / efficiency charts
-├── render_sbol_circuit.py            ← renders model JSON as a directed circuit graph
-├── run_demo_prompts.py               ← runs the 10 novel demo prompts against a live llama-server
-├── scrape_circuits.py                ← pulls real SBOL from SynBioHub / iGEM for training
-├── chen_truong_system_prompt.py      ← reference implementation of Chen & Truong 2026 prompt
-├── analyze_ablation.py               ← 2×2 ablation analysis over results/
-├── check_contamination.py            ← eval-vs-train overlap audit
-├── jetson_*.py, deploy_jetson.py     ← edge deployment + Jetson eval harness
-├── generate_*.py                     ← synthetic training data generators
-└── <20 other helper scripts>
+└── src/                              ← all Python scripts (39 files)
+    ├── sbol_eval_v2.py               ← deterministic 6-axis rubric scorer (the core artifact)
+    ├── train.py                      ← MLX QLoRA training entry (bf16 patch + mlx_lm.lora)
+    ├── infer.py, prepare_mlx.py      ← inference + MLX data prep
+    ├── plot_tco.py, plot_efficiency.py      ← cost / efficiency charts
+    ├── render_sbol_circuit.py        ← renders model JSON as a directed circuit graph
+    ├── run_demo_prompts.py           ← runs the 10 novel demo prompts against a live llama-server
+    ├── scrape_circuits.py            ← pulls real SBOL from SynBioHub / iGEM for training
+    ├── chen_truong_system_prompt.py  ← reference implementation of Chen & Truong 2026 prompt
+    ├── analyze_ablation.py           ← 2×2 ablation analysis over ../results/
+    ├── check_contamination.py        ← eval-vs-train overlap audit
+    ├── jetson_*.py, deploy_jetson.py ← edge deployment + Jetson eval harness
+    ├── generate_*.py                 ← synthetic training data generators
+    └── <20 other helper scripts>
+
+Scripts in `src/` read from `../data/` and write to `../results/` (or `../newgenes-export-assets/` for charts).
 ```
 
 **Not in the repo** (too large or licensed elsewhere):
@@ -70,9 +71,11 @@ Full detail: [`newgenes-export.md`](./newgenes-export.md).
 
 The evaluation framework runs without model weights — point it at any OpenAI-compatible endpoint.
 
+Run every command from the repo root. The scripts resolve `../data/` and `../results/` relative to their own location in `src/`.
+
 ### Score an existing response set
 ```bash
-python3 sbol_eval_v2.py --input results/sbol_eval_v2_gemma_udq3km_lora.json --summary
+python3 src/sbol_eval_v2.py --input results/sbol_eval_v2_gemma_udq3km_lora.json --summary
 ```
 
 ### Run the 100-prompt eval against a local llama-server
@@ -80,23 +83,24 @@ python3 sbol_eval_v2.py --input results/sbol_eval_v2_gemma_udq3km_lora.json --su
 # Start llama-server with your model + optional LoRA adapter
 ./llama-server --model <model.gguf> --lora <adapter.gguf> --port 8080
 
-# Run eval
-python3 sbol_eval_v2.py --url http://localhost:8080 --out results.json
+# Run eval (writes results/sbol_eval_v2_<tag>.json + .summary.json)
+LLAMA_URL=http://localhost:8080/v1/chat/completions python3 src/jetson_sbol_eval_v2_http.py <tag>
 ```
 
 ### Run the 2×2 ablation (base/LoRA × default/Chen-prompt)
 ```bash
 # Cells A, B, C, D on stride-3 subset (n=34 each)
-python3 sbol_eval_v2.py --cell A --out cell_a.json
-python3 sbol_eval_v2.py --cell B --chen --out cell_b.json
-python3 sbol_eval_v2.py --cell C --lora --out cell_c.json
-python3 sbol_eval_v2.py --cell D --lora --chen --out cell_d.json
+SAMPLE_EVERY=3 python3 src/jetson_sbol_eval_v2_http.py cell_a_base_default_s3
+SAMPLE_EVERY=3 CHEN_PROMPT=1 python3 src/jetson_sbol_eval_v2_http.py cell_b_base_chen_s3
+python3 src/extract_stride_subset.py mac_mlx_q8_lora_fix 3   # cell C from full run
+SAMPLE_EVERY=3 CHEN_PROMPT=1 python3 src/jetson_sbol_eval_v2_http.py cell_d_lora_chen_s3
+python3 src/analyze_ablation.py
 ```
 
 ### Generate the charts
 ```bash
-python3 plot_tco.py          # writes chart_tco.png
-python3 plot_efficiency.py   # writes chart_efficiency.png
+python3 src/plot_tco.py          # writes newgenes-export-assets/chart_tco.png
+python3 src/plot_efficiency.py   # writes newgenes-export-assets/chart_efficiency.png
 ```
 
 ### Train a LoRA adapter (MLX, M-series Mac, ~7.5 h)
@@ -117,7 +121,7 @@ Three training-data tiers (Qwen-synthesized simple, GPT-synthesized complex, Syn
 
 - **One model family** evaluated end-to-end (Qwen 3.5 27B), plus one edge datapoint (Gemma 4 26B-A4B). No transfer to Llama / Mistral / DeepSeek.
 - **One task** — SBOL JSON generation only. No downstream assembly, part-swapping, or wet-lab validation.
-- **Structural rubric, not biological.** 80 / 100 points are schema + wiring; only 20 points touch biology. A separate Opus-as-judge biology review scored the LoRA 71.4 / 100 — a 20-point gap that a purely structural rubric cannot see. See `BIOLOGY_VALIDATION.md`.
+- **Structural rubric, not biological.** 80 / 100 points are schema + wiring; only 20 points touch biology. A separate Opus-as-judge biology review scored the LoRA 71.4 / 100 — a 20-point gap that a purely structural rubric cannot see. See [`docs/BIOLOGY_VALIDATION.md`](./docs/BIOLOGY_VALIDATION.md).
 - **Single training seed**, ±1 pt run-to-run variance plausible.
 - **No in-vivo validation.** Rubric measures "is this a plausible circuit specification," not "does it work in E. coli."
 
@@ -125,7 +129,7 @@ Three training-data tiers (Qwen-synthesized simple, GPT-synthesized complex, Syn
 
 ## Citation / credits
 
-- Chen & Truong 2026, *"Prompting LLMs for Synthetic Biology Design"* — baseline prompt (see `chen_truong_system_prompt.py`).
+- Chen & Truong 2026, *"Prompting LLMs for Synthetic Biology Design"* — baseline prompt (see `src/chen_truong_system_prompt.py`).
 - Qwen 3.5, Google Gemma 4 — base models.
 - SynBioHub, iGEM Parts Registry, DataCurationProject — scraped training data.
 - MLX, llama.cpp, Unsloth UD K-quants — training and deployment infrastructure.

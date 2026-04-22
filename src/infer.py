@@ -154,7 +154,7 @@ def generate_circuit(client, model: str, description: str, max_retries: int = 2,
     if few_shot:
         try:
             from exemplar_bank import select_relevant_exemplars, format_few_shot_context
-            bank_path = os.path.join(os.path.dirname(__file__), 'exemplar_bank.json')
+            bank_path = os.path.join(os.path.dirname(__file__), os.pardir, 'data', 'exemplar_bank.json')
             with open(bank_path) as f:
                 bank = json.load(f)
             selected = select_relevant_exemplars(description, bank, n=2)

@@ -25,7 +25,7 @@ print(f"{'Cell':<26} {'n':>4} {'min':>5} {'q25':>5} {'med':>5} {'q75':>5} {'max'
 print("-" * 110)
 for tag, label in CELLS:
     try:
-        r = json.load(open(HERE / f"sbol_eval_v2_{tag}.json"))
+        r = json.load(open(HERE.parent / "results" / f"sbol_eval_v2_{tag}.json"))
     except FileNotFoundError:
         continue
     scores = [x["score"]["total"] for x in r]

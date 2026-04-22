@@ -243,7 +243,7 @@ def main():
                         help="Path to test JSONL (default: test.jsonl)")
     args = parser.parse_args()
 
-    base = os.path.dirname(os.path.abspath(__file__))
+    base = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "data")
 
     if args.compare:
         # Multi-model comparison mode

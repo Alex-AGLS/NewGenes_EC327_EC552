@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "chart_tco.png"
+OUT = HERE.parent / "newgenes-export-assets" / "chart_tco.png"
+OUT.parent.mkdir(exist_ok=True)
 
 HORIZON_YEARS = 3
 
