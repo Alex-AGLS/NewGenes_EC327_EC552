@@ -1,0 +1,21 @@
+# LoRA fine-tuning config for Qwen 2.5 Coder 7B
+model: "mlx-community/Qwen2.5-Coder-7B-Instruct-4bit"
+train: true
+data: "./finetune"
+seed: 42
+lora_layers: 16
+lora_parameters:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  scale: 10.0
+learning_rate: 1.0e-5
+batch_size: 2
+iters: 200
+val_batches: 2
+steps_per_report: 10
+steps_per_eval: 50
+adapter_path: "./finetune/adapters_7b"
+save_every: 50
+max_seq_length: 4096
+grad_checkpoint: true

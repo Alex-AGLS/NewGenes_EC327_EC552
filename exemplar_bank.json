@@ -1,0 +1,1361 @@
+{
+  "toggle_switch": {
+    "description": "An improved toggle switch with ultrasensitivity: LacI with cooperative binding to two tandem lacO operators represses TetR expression. TetR with cooperative binding to two tandem tetO operators represses LacI expression. Both arms include positive autoregulation (LacI weakly activates its own promoter, TetR weakly activates its own promoter) to sharpen the switching threshold. GFP and mCherry reporters indicate each state.",
+    "circuit": {
+      "components": [
+        {
+          "name": "gfp_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "laci_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "mcherry_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "tetr_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "gfp_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "laci_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "mcherry_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "tetr_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "gfp_cds",
+          "type": "cds"
+        },
+        {
+          "name": "laci_cds",
+          "type": "cds"
+        },
+        {
+          "name": "mcherry_cds",
+          "type": "cds"
+        },
+        {
+          "name": "tetr_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "laco_operator_1",
+          "type": "operator"
+        },
+        {
+          "name": "laco_operator_2",
+          "type": "operator"
+        },
+        {
+          "name": "teto_operator_1",
+          "type": "operator"
+        },
+        {
+          "name": "teto_operator_2",
+          "type": "operator"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "laci_promoter",
+          "to": "laci_cds"
+        },
+        {
+          "type": "translation",
+          "from": "laci_rbs",
+          "to": "laci_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "gfp_promoter",
+          "to": "gfp_cds"
+        },
+        {
+          "type": "translation",
+          "from": "gfp_rbs",
+          "to": "gfp_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "tetr_promoter",
+          "to": "tetr_cds"
+        },
+        {
+          "type": "translation",
+          "from": "tetr_rbs",
+          "to": "tetr_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "mcherry_promoter",
+          "to": "mcherry_cds"
+        },
+        {
+          "type": "translation",
+          "from": "mcherry_rbs",
+          "to": "mcherry_cds"
+        },
+        {
+          "type": "repression",
+          "from": "laci_cds",
+          "to": "laco_operator_1"
+        },
+        {
+          "type": "repression",
+          "from": "laci_cds",
+          "to": "laco_operator_2"
+        },
+        {
+          "type": "repression",
+          "from": "tetr_cds",
+          "to": "teto_operator_1"
+        },
+        {
+          "type": "repression",
+          "from": "tetr_cds",
+          "to": "teto_operator_2"
+        },
+        {
+          "type": "activation",
+          "from": "laci_cds",
+          "to": "laci_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "tetr_cds",
+          "to": "tetr_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "laci_cds",
+          "to": "gfp_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "tetr_cds",
+          "to": "mcherry_promoter"
+        }
+      ]
+    },
+    "stats": {
+      "components": 20,
+      "interactions": 16,
+      "regulatory": 8
+    }
+  },
+  "repressilator": {
+    "description": "A repressilator with explicit operator sites: lacO in pLac, tetO in pTet, and lambda OR in pR. Three repressors (LacI, TetR, CI) bind their respective operators cyclically.",
+    "circuit": {
+      "components": [
+        {
+          "name": "lac_o",
+          "type": "promoter"
+        },
+        {
+          "name": "lambda_or",
+          "type": "promoter"
+        },
+        {
+          "name": "p_lac",
+          "type": "promoter"
+        },
+        {
+          "name": "p_r",
+          "type": "promoter"
+        },
+        {
+          "name": "p_tet",
+          "type": "promoter"
+        },
+        {
+          "name": "tet_o",
+          "type": "promoter"
+        },
+        {
+          "name": "rbs_ci",
+          "type": "rbs"
+        },
+        {
+          "name": "rbs_lac_i",
+          "type": "rbs"
+        },
+        {
+          "name": "rbs_tet_r",
+          "type": "rbs"
+        },
+        {
+          "name": "cds_ci",
+          "type": "cds"
+        },
+        {
+          "name": "cds_lac_i",
+          "type": "cds"
+        },
+        {
+          "name": "cds_tet_r",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "p_lac",
+          "to": "cds_lac_i"
+        },
+        {
+          "type": "repression",
+          "from": "cds_lac_i",
+          "to": "lac_o"
+        },
+        {
+          "type": "transcription",
+          "from": "p_tet",
+          "to": "cds_tet_r"
+        },
+        {
+          "type": "repression",
+          "from": "cds_tet_r",
+          "to": "tet_o"
+        },
+        {
+          "type": "transcription",
+          "from": "p_r",
+          "to": "cds_ci"
+        },
+        {
+          "type": "repression",
+          "from": "cds_ci",
+          "to": "lambda_or"
+        },
+        {
+          "type": "translation",
+          "from": "rbs_lac_i",
+          "to": "cds_lac_i"
+        },
+        {
+          "type": "translation",
+          "from": "rbs_tet_r",
+          "to": "cds_tet_r"
+        },
+        {
+          "type": "translation",
+          "from": "rbs_ci",
+          "to": "cds_ci"
+        }
+      ]
+    },
+    "stats": {
+      "components": 15,
+      "interactions": 9,
+      "regulatory": 3
+    }
+  },
+  "logic_gate": {
+    "description": "A theranostic circuit combining diagnosis and treatment: a two-input system senses both elevated lactate (via LldR) and low oxygen (via FNR). When both tumor markers are present, an AND gate activates: (1) a luciferase reporter for non-invasive imaging, (2) a therapeutic payload (tumor necrosis factor-related apoptosis-inducing ligand, TRAIL), and (3) a checkpoint inhibitor (anti-PD1 nanobody). The AND gate uses a split intein system where FNR drives the N-terminal half and LldR derepression drives the C-terminal half. A constitutive TetR-based timer delays therapeutic payload release by 6 hours after initial tumor detection, ensuring proper localization before drug release.",
+    "circuit": {
+      "components": [
+        {
+          "name": "and_output_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "constitutive_lldr_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "constitutive_tetr_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "fnr_responsive_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "lldr_derepressed_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "timer_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "anti_pd1_nanobody_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "lldr_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "luciferase_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "split_intein_c_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "split_intein_n_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "tetr_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "trail_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "anti_pd1_nanobody_cds",
+          "type": "cds"
+        },
+        {
+          "name": "lldr_cds",
+          "type": "cds"
+        },
+        {
+          "name": "luciferase_cds",
+          "type": "cds"
+        },
+        {
+          "name": "split_intein_c_cds",
+          "type": "cds"
+        },
+        {
+          "name": "split_intein_n_cds",
+          "type": "cds"
+        },
+        {
+          "name": "tetr_cds",
+          "type": "cds"
+        },
+        {
+          "name": "trail_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "T5",
+          "type": "terminator"
+        },
+        {
+          "name": "T6",
+          "type": "terminator"
+        },
+        {
+          "name": "T7",
+          "type": "terminator"
+        },
+        {
+          "name": "lld_operator",
+          "type": "operator"
+        },
+        {
+          "name": "tet_operator",
+          "type": "operator"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "constitutive_lldr_promoter",
+          "to": "lldr_cds"
+        },
+        {
+          "type": "translation",
+          "from": "lldr_rbs",
+          "to": "lldr_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "fnr_responsive_promoter",
+          "to": "split_intein_n_cds"
+        },
+        {
+          "type": "translation",
+          "from": "split_intein_n_rbs",
+          "to": "split_intein_n_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "lldr_derepressed_promoter",
+          "to": "split_intein_c_cds"
+        },
+        {
+          "type": "translation",
+          "from": "split_intein_c_rbs",
+          "to": "split_intein_c_cds"
+        },
+        {
+          "type": "repression",
+          "from": "lldr_cds",
+          "to": "lld_operator"
+        },
+        {
+          "type": "activation",
+          "from": "split_intein_n_cds",
+          "to": "and_output_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "split_intein_c_cds",
+          "to": "and_output_promoter"
+        },
+        {
+          "type": "transcription",
+          "from": "and_output_promoter",
+          "to": "luciferase_cds"
+        },
+        {
+          "type": "translation",
+          "from": "luciferase_rbs",
+          "to": "luciferase_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "constitutive_tetr_promoter",
+          "to": "tetr_cds"
+        },
+        {
+          "type": "translation",
+          "from": "tetr_rbs",
+          "to": "tetr_cds"
+        },
+        {
+          "type": "repression",
+          "from": "tetr_cds",
+          "to": "tet_operator"
+        },
+        {
+          "type": "transcription",
+          "from": "timer_promoter",
+          "to": "trail_cds"
+        },
+        {
+          "type": "translation",
+          "from": "trail_rbs",
+          "to": "trail_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "timer_promoter",
+          "to": "anti_pd1_nanobody_cds"
+        },
+        {
+          "type": "translation",
+          "from": "anti_pd1_nanobody_rbs",
+          "to": "anti_pd1_nanobody_cds"
+        },
+        {
+          "type": "activation",
+          "from": "split_intein_n_cds",
+          "to": "timer_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "split_intein_c_cds",
+          "to": "timer_promoter"
+        }
+      ]
+    },
+    "stats": {
+      "components": 29,
+      "interactions": 20,
+      "regulatory": 6
+    }
+  },
+  "biosensor": {
+    "description": "An engineered Salmonella for tumor immunotherapy: a hypoxia sensor (pepT promoter, activated under low oxygen in tumor core) drives a Flp recombinase. Flp excises a transcriptional terminator flanked by FRT sites, permanently activating a downstream pTac promoter driving flagellin B (FljB, a potent TLR5 agonist for immune activation). A second module: constitutive pJ23100 drives an anti-CD47 nanobody (blocking the don't-eat-me signal) fused to an OmpA surface display anchor. A third module: arabinose-inducible MazF toxin as external kill switch.",
+    "circuit": {
+      "components": [
+        {
+          "name": "pbad_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "pept_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "pj23100_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "ptac_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "anti_cd47_ompA_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "fljb_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "flp_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "mazf_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "anti_cd47_ompA_fusion_cds",
+          "type": "cds"
+        },
+        {
+          "name": "fljb_cds",
+          "type": "cds"
+        },
+        {
+          "name": "flp_cds",
+          "type": "cds"
+        },
+        {
+          "name": "mazf_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "T5",
+          "type": "terminator"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "pept_promoter",
+          "to": "flp_cds"
+        },
+        {
+          "type": "translation",
+          "from": "flp_rbs",
+          "to": "flp_cds"
+        },
+        {
+          "type": "activation",
+          "from": "flp_cds",
+          "to": "ptac_promoter"
+        },
+        {
+          "type": "transcription",
+          "from": "ptac_promoter",
+          "to": "fljb_cds"
+        },
+        {
+          "type": "translation",
+          "from": "fljb_rbs",
+          "to": "fljb_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "pj23100_promoter",
+          "to": "anti_cd47_ompA_fusion_cds"
+        },
+        {
+          "type": "translation",
+          "from": "anti_cd47_ompA_rbs",
+          "to": "anti_cd47_ompA_fusion_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "pbad_promoter",
+          "to": "mazf_cds"
+        },
+        {
+          "type": "translation",
+          "from": "mazf_rbs",
+          "to": "mazf_cds"
+        }
+      ]
+    },
+    "stats": {
+      "components": 17,
+      "interactions": 9,
+      "regulatory": 1
+    }
+  },
+  "therapeutic": {
+    "description": "A tumor-targeting E. coli circuit (Din et al. 2016 Nature): constitutive expression of LuxI produces AHL. At high density, AHL-LuxR activates pLux driving: (1) phage lysis gene E for synchronized population lysis, (2) haemolysin E (HlyE/ClyA) cytotoxin as therapeutic payload accumulated intracellularly. Post-lysis, surviving cells (stochastic non-lysing fraction ~1%) regrow and repeat. A pDawn light-sensor module (YF1/FixJ) optionally controls LuxI expression for external triggering. An ampicillin resistance marker enables selection.",
+    "circuit": {
+      "components": [
+        {
+          "name": "ampicillin_resistance_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "constitutive_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "lux_operator",
+          "type": "promoter"
+        },
+        {
+          "name": "luxr_constitutive_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "pdawn_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "plux_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "ampicillin_resistance_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "fixj_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "hlye_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "luxi_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "luxr_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "lysis_gene_e_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "yf1_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "bla_cds",
+          "type": "cds"
+        },
+        {
+          "name": "fixj_cds",
+          "type": "cds"
+        },
+        {
+          "name": "hlye_cds",
+          "type": "cds"
+        },
+        {
+          "name": "luxi_cds",
+          "type": "cds"
+        },
+        {
+          "name": "luxr_cds",
+          "type": "cds"
+        },
+        {
+          "name": "lysis_gene_e_cds",
+          "type": "cds"
+        },
+        {
+          "name": "yf1_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "T5",
+          "type": "terminator"
+        },
+        {
+          "name": "T6",
+          "type": "terminator"
+        },
+        {
+          "name": "T7",
+          "type": "terminator"
+        },
+        {
+          "name": "ahl_signal",
+          "type": "other"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "constitutive_promoter",
+          "to": "luxi_cds"
+        },
+        {
+          "type": "translation",
+          "from": "luxi_rbs",
+          "to": "luxi_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "luxr_constitutive_promoter",
+          "to": "luxr_cds"
+        },
+        {
+          "type": "translation",
+          "from": "luxr_rbs",
+          "to": "luxr_cds"
+        },
+        {
+          "type": "activation",
+          "from": "luxr_cds",
+          "to": "lux_operator"
+        },
+        {
+          "type": "activation",
+          "from": "ahl_signal",
+          "to": "lux_operator"
+        },
+        {
+          "type": "transcription",
+          "from": "plux_promoter",
+          "to": "lysis_gene_e_cds"
+        },
+        {
+          "type": "translation",
+          "from": "lysis_gene_e_rbs",
+          "to": "lysis_gene_e_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "plux_promoter",
+          "to": "hlye_cds"
+        },
+        {
+          "type": "translation",
+          "from": "hlye_rbs",
+          "to": "hlye_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "constitutive_promoter",
+          "to": "yf1_cds"
+        },
+        {
+          "type": "translation",
+          "from": "yf1_rbs",
+          "to": "yf1_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "constitutive_promoter",
+          "to": "fixj_cds"
+        },
+        {
+          "type": "translation",
+          "from": "fixj_rbs",
+          "to": "fixj_cds"
+        },
+        {
+          "type": "activation",
+          "from": "fixj_cds",
+          "to": "pdawn_promoter"
+        },
+        {
+          "type": "transcription",
+          "from": "pdawn_promoter",
+          "to": "luxi_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "ampicillin_resistance_promoter",
+          "to": "bla_cds"
+        },
+        {
+          "type": "translation",
+          "from": "ampicillin_resistance_rbs",
+          "to": "bla_cds"
+        }
+      ]
+    },
+    "stats": {
+      "components": 28,
+      "interactions": 18,
+      "regulatory": 3
+    }
+  },
+  "complex_multi_module": {
+    "description": "A living antibody factory circuit for continuous bispecific antibody production against solid tumors. Module 1: engineered CHO cells with a constitutive CMV promoter driving anti-HER2 VHH (nanobody, heavy chain only) fused to anti-CD3 scFv via a flexible (G4S)3 linker — creating a bispecific T-cell engager (BiTE) that redirects endogenous T-cells to HER2+ tumor cells. Module 2: a second constitutive EF1a promoter drives anti-PD-L1 VHH nanobody fused to human IgG1 Fc domain — creating a checkpoint inhibitor antibody. Module 3: an ER stress-responsive UPR element (UPRE) drives GRP78 chaperone and PDI disulfide isomerase via P2A — enhancing protein folding capacity when antibody production overwhelms the ER. Module 4: a tetracycline-inducible TRE promoter drives anti-VEGF VHH-Fc (bevacizumab biosimilar) — inducible anti-angiogenic therapy. Module 5: constitutive PGK drives a furin-cleavable IL-2 mutein (IL-2 superkine with reduced CD25 binding, preferentially activating CD8+ T-cells over Tregs) — fused to albumin-binding domain for extended half-life. Module 6: a miR-21-responsive element (miR-21 is elevated in cancer) acts as a cancer proximity detector — when the cells sense tumor-derived exosomal miR-21, it drives additional anti-CD47 nanobody production (blocking the don't-eat-me signal). Module 7: HSV-TK safety gene under constitutive promoter. All antibody sequences include IL-2 signal peptide for secretion.",
+    "circuit": {
+      "components": [
+        {
+          "name": "cmv_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "ef1a_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "mir21_response_element",
+          "type": "promoter"
+        },
+        {
+          "name": "mir21_responsive_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "pgk_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "safety_constitutive_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "tet_operator",
+          "type": "promoter"
+        },
+        {
+          "name": "tre_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "upre_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "module1_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module2_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module3_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module4_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module5_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module6_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "module7_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "anti_cd47_nanobody_cds",
+          "type": "cds"
+        },
+        {
+          "name": "anti_her2_vhh_anti_cd3_scfv_bite_cds",
+          "type": "cds"
+        },
+        {
+          "name": "anti_pd_l1_vhh_fc_cds",
+          "type": "cds"
+        },
+        {
+          "name": "anti_vegf_vhh_fc_cds",
+          "type": "cds"
+        },
+        {
+          "name": "grp78_p2a_pdi_cds",
+          "type": "cds"
+        },
+        {
+          "name": "hsv_tk_cds",
+          "type": "cds"
+        },
+        {
+          "name": "il2_mutein_abd_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "T5",
+          "type": "terminator"
+        },
+        {
+          "name": "T6",
+          "type": "terminator"
+        },
+        {
+          "name": "T7",
+          "type": "terminator"
+        },
+        {
+          "name": "er_stress_signal",
+          "type": "other"
+        },
+        {
+          "name": "mir21_signal",
+          "type": "other"
+        },
+        {
+          "name": "tetracycline_signal",
+          "type": "other"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "cmv_promoter",
+          "to": "anti_her2_vhh_anti_cd3_scfv_bite_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module1_rbs",
+          "to": "anti_her2_vhh_anti_cd3_scfv_bite_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "ef1a_promoter",
+          "to": "anti_pd_l1_vhh_fc_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module2_rbs",
+          "to": "anti_pd_l1_vhh_fc_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "upre_promoter",
+          "to": "grp78_p2a_pdi_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module3_rbs",
+          "to": "grp78_p2a_pdi_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "tre_promoter",
+          "to": "anti_vegf_vhh_fc_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module4_rbs",
+          "to": "anti_vegf_vhh_fc_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "pgk_promoter",
+          "to": "il2_mutein_abd_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module5_rbs",
+          "to": "il2_mutein_abd_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "mir21_responsive_promoter",
+          "to": "anti_cd47_nanobody_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module6_rbs",
+          "to": "anti_cd47_nanobody_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "safety_constitutive_promoter",
+          "to": "hsv_tk_cds"
+        },
+        {
+          "type": "translation",
+          "from": "module7_rbs",
+          "to": "hsv_tk_cds"
+        },
+        {
+          "type": "activation",
+          "from": "er_stress_signal",
+          "to": "upre_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "tetracycline_signal",
+          "to": "tre_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "tetracycline_signal",
+          "to": "tet_operator"
+        },
+        {
+          "type": "activation",
+          "from": "mir21_signal",
+          "to": "mir21_responsive_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "mir21_signal",
+          "to": "mir21_response_element"
+        },
+        {
+          "type": "activation",
+          "from": "anti_her2_vhh_anti_cd3_scfv_bite_cds",
+          "to": "er_stress_signal"
+        },
+        {
+          "type": "activation",
+          "from": "anti_pd_l1_vhh_fc_cds",
+          "to": "er_stress_signal"
+        },
+        {
+          "type": "activation",
+          "from": "anti_vegf_vhh_fc_cds",
+          "to": "er_stress_signal"
+        },
+        {
+          "type": "activation",
+          "from": "anti_cd47_nanobody_cds",
+          "to": "er_stress_signal"
+        },
+        {
+          "type": "activation",
+          "from": "il2_mutein_abd_cds",
+          "to": "er_stress_signal"
+        }
+      ]
+    },
+    "stats": {
+      "components": 33,
+      "interactions": 24,
+      "regulatory": 10
+    }
+  },
+  "crispr": {
+    "description": "A CRISPR-based gene drive circuit with safeguards: Cas9 cuts a target gene and inserts a copy of itself plus a gRNA and a payload gene. A separate kill switch using an inducible promoter drives an anti-CRISPR protein to halt the drive.",
+    "circuit": {
+      "components": [
+        {
+          "name": "cas9_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "grna_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "inducible_kill_switch_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "kill_switch_operator",
+          "type": "promoter"
+        },
+        {
+          "name": "payload_promoter",
+          "type": "promoter"
+        },
+        {
+          "name": "target_site",
+          "type": "promoter"
+        },
+        {
+          "name": "anti_crispr_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "cas9_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "payload_rbs",
+          "type": "rbs"
+        },
+        {
+          "name": "anti_crispr_cds",
+          "type": "cds"
+        },
+        {
+          "name": "cas9_cds",
+          "type": "cds"
+        },
+        {
+          "name": "grna_cassette",
+          "type": "cds"
+        },
+        {
+          "name": "payload_cds",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        },
+        {
+          "name": "T3",
+          "type": "terminator"
+        },
+        {
+          "name": "T4",
+          "type": "terminator"
+        },
+        {
+          "name": "inducer",
+          "type": "other"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "cas9_promoter",
+          "to": "cas9_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "grna_promoter",
+          "to": "grna_cassette"
+        },
+        {
+          "type": "transcription",
+          "from": "payload_promoter",
+          "to": "payload_cds"
+        },
+        {
+          "type": "transcription",
+          "from": "inducible_kill_switch_promoter",
+          "to": "anti_crispr_cds"
+        },
+        {
+          "type": "activation",
+          "from": "inducer",
+          "to": "inducible_kill_switch_promoter"
+        },
+        {
+          "type": "repression",
+          "from": "anti_crispr_cds",
+          "to": "cas9_promoter"
+        },
+        {
+          "type": "activation",
+          "from": "cas9_cds",
+          "to": "target_site"
+        },
+        {
+          "type": "activation",
+          "from": "grna_cassette",
+          "to": "target_site"
+        },
+        {
+          "type": "activation",
+          "from": "inducer",
+          "to": "kill_switch_operator"
+        },
+        {
+          "type": "translation",
+          "from": "cas9_rbs",
+          "to": "cas9_cds"
+        },
+        {
+          "type": "translation",
+          "from": "payload_rbs",
+          "to": "payload_cds"
+        },
+        {
+          "type": "translation",
+          "from": "anti_crispr_rbs",
+          "to": "anti_crispr_cds"
+        }
+      ]
+    },
+    "stats": {
+      "components": 18,
+      "interactions": 12,
+      "regulatory": 5
+    }
+  },
+  "oscillator": {
+    "description": "A two-node oscillator with an activator and repressor: the activator promotes both itself and the repressor, while the repressor inhibits the activator.",
+    "circuit": {
+      "components": [
+        {
+          "name": "promoter_activator",
+          "type": "promoter"
+        },
+        {
+          "name": "promoter_repressor",
+          "type": "promoter"
+        },
+        {
+          "name": "rbs_activator",
+          "type": "rbs"
+        },
+        {
+          "name": "rbs_repressor",
+          "type": "rbs"
+        },
+        {
+          "name": "cds_activator",
+          "type": "cds"
+        },
+        {
+          "name": "cds_repressor",
+          "type": "cds"
+        },
+        {
+          "name": "T1",
+          "type": "terminator"
+        },
+        {
+          "name": "T2",
+          "type": "terminator"
+        }
+      ],
+      "interactions": [
+        {
+          "type": "transcription",
+          "from": "promoter_activator",
+          "to": "cds_activator"
+        },
+        {
+          "type": "transcription",
+          "from": "promoter_repressor",
+          "to": "cds_repressor"
+        },
+        {
+          "type": "activation",
+          "from": "cds_activator",
+          "to": "promoter_activator"
+        },
+        {
+          "type": "activation",
+          "from": "cds_activator",
+          "to": "promoter_repressor"
+        },
+        {
+          "type": "repression",
+          "from": "cds_repressor",
+          "to": "promoter_activator"
+        },
+        {
+          "type": "translation",
+          "from": "rbs_activator",
+          "to": "cds_activator"
+        },
+        {
+          "type": "translation",
+          "from": "rbs_repressor",
+          "to": "cds_repressor"
+        }
+      ]
+    },
+    "stats": {
+      "components": 8,
+      "interactions": 7,
+      "regulatory": 3
+    }
+  }
+}

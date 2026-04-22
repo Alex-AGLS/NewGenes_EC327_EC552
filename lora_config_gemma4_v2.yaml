@@ -1,0 +1,25 @@
+# Gemma 4 26B-A4B QLoRA v2 — retrain on expanded 1769-row gpt-5.4-repaired dataset
+# Deployment target: Jetson Orin NX 16GB (same as v1)
+# Change from v1: +350 rows from gpt-5.4-repaired cleanup; iters scaled to preserve 2.68 epochs
+model: "mlx-community/gemma-4-26b-a4b-it-4bit"
+train: true
+data: "./mlx_data"
+seed: 42
+lora_layers: 16
+lora_parameters:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  scale: 10.0
+learning_rate: 1.0e-5
+batch_size: 1
+# v1: 3800 iters / 1419 rows = 2.68 epochs
+# v2: 4800 iters / 1769 rows = 2.71 epochs (preserves epoch count on larger dataset)
+iters: 4800
+val_batches: 25
+steps_per_report: 20
+steps_per_eval: 200
+adapter_path: "./adapters/gemma4-newgenes-v2"
+save_every: 250
+max_seq_length: 4096
+grad_checkpoint: true

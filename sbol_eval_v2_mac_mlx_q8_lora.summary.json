@@ -1,0 +1,44 @@
+{
+  "n_total": 100,
+  "n_completed": 100,
+  "n_timeouts": 0,
+  "n_failures": 0,
+  "avg_total": 90.71,
+  "axes_avg": {
+    "SV": 19.8,
+    "BW": 18.51,
+    "BA": 17.49,
+    "PF": 16.45,
+    "DQ": 9.02,
+    "REP": 9.44
+  },
+  "by_difficulty": {
+    "1": 93.15,
+    "2": 90.55,
+    "3": 92.5,
+    "4": 87.2,
+    "5": 90.15
+  },
+  "by_organism": {
+    "bacillus": 92.33,
+    "cellfree": 90.5,
+    "ecoli": 90.63,
+    "mammalian": 91.0,
+    "plant": 88.2,
+    "yeast": 91.89
+  },
+  "by_topology": {
+    "biosensor": 91.11,
+    "cascade": 92.33,
+    "crispr": 90.67,
+    "feedback": 68.5,
+    "gate": 92.0,
+    "inducible": 90.55,
+    "kill": 89.33,
+    "oscillator": 92.5,
+    "pathway": 88.56,
+    "qs": 95.5,
+    "reporter": 93.15,
+    "toggle": 94.0
+  }
+}

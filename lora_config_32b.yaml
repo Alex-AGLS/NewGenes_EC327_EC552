@@ -1,0 +1,30 @@
+# Aggressive LoRA fine-tuning config for Qwen2.5-Coder-32B-Instruct-8bit
+# Optimized for max performance on 64GB RAM with 110 examples
+model: "mlx-community/Qwen2.5-Coder-32B-Instruct-8bit"
+train: true
+data: "./finetune"
+seed: 42
+
+# Aggressive LoRA — high rank + all layers for maximum expressiveness
+lora_layers: 64
+lora_parameters:
+  rank: 64
+  alpha: 128
+  dropout: 0.1
+  scale: 10.0
+
+# Training — tuned to prevent overfitting
+learning_rate: 1.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 50
+  arguments: [1.0e-5, 600]
+batch_size: 1
+iters: 600
+val_batches: 5
+steps_per_report: 10
+steps_per_eval: 25
+adapter_path: "./finetune/adapters_32b"
+save_every: 50
+max_seq_length: 4096
+grad_checkpoint: true

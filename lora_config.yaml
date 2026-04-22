@@ -1,0 +1,22 @@
+# Gemma 4 26B-A4B QLoRA fine-tuning config for Newgenes
+# Fine-tune on M5 Max 64GB, deploy on Jetson Orin NX 16GB
+model: "mlx-community/gemma-4-26b-a4b-it-4bit"
+train: true
+data: "./mlx_data"
+seed: 42
+lora_layers: 16
+lora_parameters:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  scale: 10.0
+learning_rate: 1.0e-5
+batch_size: 1
+iters: 3800
+val_batches: 25
+steps_per_report: 10
+steps_per_eval: 100
+adapter_path: "./adapters/gemma4-newgenes"
+save_every: 200
+max_seq_length: 4096
+grad_checkpoint: true

@@ -1,0 +1,2438 @@
+[
+  {
+    "entry": {
+      "diff": 1,
+      "org": "ecoli",
+      "topo": "reporter",
+      "prompt": "Express GFP from a constitutive promoter in E. coli",
+      "kw": [
+        "gfp",
+        "promoter"
+      ]
+    },
+    "response": "{\"name\": \"constitutive_gfp\", \"components\": [{\"name\": \"p_j23100\", \"type\": \"promoter\", \"description\": \"constitutive promoter\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"green fluorescent protein reporter\"}, {\"name\": \"rrn_b_t1\", \"type\": \"terminator\", \"description\": \"rrnB T1 transcriptional terminator\"}], \"interactions\": [{\"from\": \"p_j23100\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"gfp\", \"type\": \"translation\"}], \"behavior\": \"A constitutive promoter p_j23100 drives transcription of gfp in E. coli, and the B0034 RBS supports translation of GFP. The rrnB T1 terminator ends the transcription unit.\", \"organism\": \"Escherichia coli\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 2,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 94
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1348,
+      "completion_tokens": 240,
+      "total_tokens": 1588,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "time": 15.458969116210938
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "ecoli",
+      "topo": "reporter",
+      "prompt": "Express luciferase from a T7 promoter in E. coli",
+      "kw": [
+        "luciferase",
+        "t7"
+      ]
+    },
+    "response": "{\"name\": \"t7_luciferase\", \"components\": [{\"name\": \"p_t7\", \"type\": \"promoter\", \"description\": \"T7 RNA polymerase-dependent promoter\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for luciferase\"}, {\"name\": \"luciferase\", \"type\": \"cds\", \"description\": \"Luciferase reporter enzyme\"}, {\"name\": \"rrn_b_t1\", \"type\": \"terminator\", \"description\": \"rrnB T1 transcription terminator\"}], \"interactions\": [{\"from\": \"p_t7\", \"to\": \"luciferase\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"luciferase\", \"type\": \"translation\"}], \"behavior\": \"In E. coli, the T7 promoter drives transcription of luciferase when T7 RNA polymerase is present. The B0034 RBS supports translation of the luciferase CDS, and the rrnB T1 terminator ends transcription. This is a simple reporter expression cassette dependent on an external T7 RNA polymerase source.\", \"organism\": \"Escherichia coli\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 92
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1350,
+      "completion_tokens": 267,
+      "total_tokens": 1617,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 15.195525169372559
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "ecoli",
+      "topo": "reporter",
+      "prompt": "Constitutive YFP expression with the B0034 RBS in E. coli",
+      "kw": [
+        "yfp",
+        "b0034"
+      ]
+    },
+    "response": "{\"name\": \"constitutive_yfp\", \"components\": [{\"name\": \"p_j23100\", \"type\": \"promoter\", \"description\": \"p_j23100 promoter driving yfp\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for yfp\"}, {\"name\": \"yfp\", \"type\": \"cds\", \"description\": \"yellow fluorescent protein reporter\"}, {\"name\": \"t_yfp\", \"type\": \"terminator\", \"description\": \"transcriptional terminator for yfp\"}], \"interactions\": [{\"from\": \"p_j23100\", \"to\": \"yfp\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"yfp\", \"type\": \"translation\"}], \"behavior\": \"This is a simple constitutive expression cassette in Escherichia coli. The p_j23100 promoter drives transcription of yfp, and the B0034 RBS supports translation. The design matches the prompt's request for constitutive YFP expression with the B0034 RBS in E. coli.\", \"organism\": \"Escherichia coli\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 95
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1356,
+      "completion_tokens": 271,
+      "total_tokens": 1627,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 15.395661115646362
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "yeast",
+      "topo": "reporter",
+      "prompt": "Express mCherry from the GAL1 promoter in S. cerevisiae (galactose-induced)",
+      "kw": [
+        "mcherry",
+        "gal1"
+      ]
+    },
+    "response": "{\"name\": \"yeast_gal1_mcherry\", \"organism\": \"Saccharomyces cerevisiae\", \"components\": [{\"name\": \"p_gal1\", \"type\": \"promoter\", \"description\": \"GAL1 galactose-inducible yeast promoter driving mCherry expression\"}, {\"name\": \"rbs_mch\", \"type\": \"rbs\", \"description\": \"Yeast 5' UTR/Kozak translation initiation context for mCherry\"}, {\"name\": \"mch\", \"type\": \"cds\", \"description\": \"mCherry red fluorescent protein reporter\"}, {\"name\": \"t_adh1\", \"type\": \"terminator\", \"description\": \"ADH1 transcription terminator/polyadenylation signal\"}], \"interactions\": [{\"from\": \"p_gal1\", \"to\": \"mch\", \"type\": \"transcription\"}, {\"from\": \"rbs_mch\", \"to\": \"mch\", \"type\": \"translation\"}], \"behavior\": \"In S. cerevisiae, the GAL1 promoter drives transcription of mCherry in the presence of galactose. The yeast 5' UTR/Kozak element supports translation initiation, and the ADH1 terminator ends transcription. This is a simple inducible reporter circuit.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 94
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1358,
+      "completion_tokens": 276,
+      "total_tokens": 1634,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 15.74802303314209
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "mammalian",
+      "topo": "reporter",
+      "prompt": "Constitutive mCherry from the EF1a promoter in HEK293 cells",
+      "kw": [
+        "mcherry",
+        "ef1a"
+      ]
+    },
+    "response": "{\"name\": \"constitutive_m_cherry_ef1a\", \"organism\": \"Homo sapiens\", \"components\": [{\"name\": \"p_ef1a\", \"type\": \"promoter\", \"description\": \"EF1\u03b1 constitutive mammalian promoter driving mCherry expression in HEK293 cells\"}, {\"name\": \"kozak\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for mCherry in mammalian cells\"}, {\"name\": \"m_cherry\", \"type\": \"cds\", \"description\": \"mCherry red fluorescent protein reporter\"}, {\"name\": \"bgh_polya\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for transcript termination and processing in mammalian cells\"}], \"interactions\": [{\"from\": \"p_ef1a\", \"to\": \"m_cherry\", \"type\": \"transcription\"}, {\"from\": \"kozak\", \"to\": \"m_cherry\", \"type\": \"translation\"}], \"behavior\": \"The EF1\u03b1 promoter drives constitutive transcription of the mCherry coding sequence in HEK293 cells. The Kozak sequence supports translation initiation, and the BGH poly(A) signal terminates the transcript. This yields continuous red fluorescence as a simple constitutive reporter.\", \"notes\": []}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 1,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 95
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1356,
+      "completion_tokens": 281,
+      "total_tokens": 1637,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 15.90355372428894
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "plant",
+      "topo": "reporter",
+      "prompt": "Express GUS reporter under a ubiquitin promoter in tobacco",
+      "kw": [
+        "gus",
+        "ubiquitin"
+      ]
+    },
+    "response": "{\"name\": \"GUS reporter under a ubiquitin promoter in tobacco\", \"organism\": \"Arabidopsis thaliana\", \"components\": [{\"name\": \"p_ubq10\", \"type\": \"promoter\", \"description\": \"Ubiquitin 10 constitutive plant promoter driving GUS expression\"}, {\"name\": \"rbs_gus\", \"type\": \"rbs\", \"description\": \"Plant translation initiation element for gus\"}, {\"name\": \"gus\", \"type\": \"cds\", \"description\": \"\u03b2-glucuronidase reporter enzyme\"}, {\"name\": \"t_nos\", \"type\": \"terminator\", \"description\": \"NOS terminator for transcription termination\"}], \"interactions\": [{\"from\": \"p_ubq10\", \"to\": \"gus\", \"type\": \"transcription\"}, {\"from\": \"rbs_gus\", \"to\": \"gus\", \"type\": \"translation\"}], \"behavior\": \"A constitutive plant ubiquitin 10 promoter drives expression of the gus reporter in tobacco. The design uses a single transcription unit with p_ubq10, rbs_gus, gus, and t_nos. GUS activity provides a stable, inducer-independent reporter readout.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 95
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1348,
+      "completion_tokens": 265,
+      "total_tokens": 1613,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 15.02957797050476
+  },
+  {
+    "entry": {
+      "diff": 1,
+      "org": "ecoli",
+      "topo": "reporter",
+      "prompt": "Simple His-tagged mRFP expression from a constitutive promoter in E. coli",
+      "kw": [
+        "mrfp",
+        "his"
+      ]
+    },
+    "response": "{\"name\": \"Simple His-tagged mRFP expression from a constitutive promoter in E. coli\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_j23100\", \"type\": \"promoter\", \"description\": \"Constitutive promoter J23100 for strong expression in E. coli\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"Ribosome binding site B0034 for translation initiation in E. coli\"}, {\"name\": \"mrfp\", \"type\": \"cds\", \"description\": \"Monomeric red fluorescent protein (mRFP) coding sequence\"}, {\"name\": \"rrn_b\", \"type\": \"terminator\", \"description\": \"rrnB T1 transcriptional terminator in E. coli\"}], \"interactions\": [{\"from\": \"p_j23100\", \"to\": \"mrfp\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"mrfp\", \"type\": \"translation\"}], \"behavior\": \"A constitutive promoter J23100 drives transcription of the mRFP coding sequence in E. coli, and the B0034 ribosome binding site enables translation of mRFP. The rrnB terminator ends transcription downstream of the reporter. This is a simple constitutive expression cassette without regulatory control.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 97
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1354,
+      "completion_tokens": 308,
+      "total_tokens": 1662,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 17.42333197593689
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "ecoli",
+      "topo": "inducible",
+      "prompt": "aTc-inducible GFP using TetR repression of pTet in E. coli",
+      "kw": [
+        "gfp",
+        "tetr",
+        "atc"
+      ]
+    },
+    "response": "{\"name\": \"aTc-inducible GFP using TetR repression of pTet in E. coli\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_const\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving tetR expression in E. coli\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for tetR\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor protein that binds the tet operator and is inactivated by aTc\"}, {\"name\": \"t_tetr\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the tetR cassette\"}, {\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"aTc-inducible pTet promoter repressed by TetR\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the gfp cassette\"}, {\"name\": \"tetO\", \"type\": \"operator\", \"description\": \"Tet operator site associated with pTet and bound by TetR\"}], \"interactions\": [{\"from\": \"p_const\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"p_tet\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"tetO\", \"type\": \"repression\"}], \"behavior\": \"In E. coli, a constitutive promoter drives expression of TetR, which represses the pTet promoter via the tetO operator. In the absence of aTc, TetR binds tetO and keeps GFP expression low. When aTc is present, it binds TetR and reduces operator binding, allowing transcription from pTet and GFP production.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 0,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 1,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1356,
+      "completion_tokens": 511,
+      "total_tokens": 1867,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 28.633004903793335
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "ecoli",
+      "topo": "inducible",
+      "prompt": "IPTG-inducible expression of a T7 RNA polymerase, which then drives sfGFP from a T7 promoter",
+      "kw": [
+        "iptg",
+        "t7",
+        "sfgfp"
+      ]
+    },
+    "response": "{\"name\": \"IPTG-inducible expression of a T7 RNA polymerase, which then drives sfGFP from a T7 promoter\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_lac\", \"type\": \"promoter\", \"description\": \"IPTG-inducible lac promoter driving T7 RNA polymerase expression\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for T7 RNA polymerase translation\"}, {\"name\": \"t7_rna_polymerase\", \"type\": \"cds\", \"description\": \"T7 RNA polymerase that transcribes from T7 promoters\"}, {\"name\": \"rrn_b\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator\"}, {\"name\": \"p_t7\", \"type\": \"promoter\", \"description\": \"T7 promoter driving sfGFP expression\"}, {\"name\": \"b0034_2\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for sfGFP translation\"}, {\"name\": \"sf_gfp\", \"type\": \"cds\", \"description\": \"Superfolder GFP reporter\"}, {\"name\": \"rrn_b_2\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator\"}], \"interactions\": [{\"from\": \"p_lac\", \"to\": \"t7_rna_polymerase\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"t7_rna_polymerase\", \"type\": \"translation\"}, {\"from\": \"p_t7\", \"to\": \"sf_gfp\", \"type\": \"transcription\"}, {\"from\": \"b0034_2\", \"to\": \"sf_gfp\", \"type\": \"translation\"}], \"behavior\": \"In E. coli, IPTG induces the lac promoter to express T7 RNA polymerase. The expressed T7 RNA polymerase then transcribes sfGFP from a T7 promoter, producing GFP fluorescence. This is a two-stage inducible system where IPTG controls the polymerase and the polymerase drives reporter expression.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 2,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 95
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1362,
+      "completion_tokens": 465,
+      "total_tokens": 1827,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 26.0936119556427
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "ecoli",
+      "topo": "inducible",
+      "prompt": "Create an aTc-inducible RFP reporter with a TetR repression module",
+      "kw": [
+        "tetr",
+        "rfp",
+        "atc"
+      ]
+    },
+    "response": "{\"name\": \"tetr_rfp\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"ptet\", \"type\": \"promoter\", \"description\": \"aTc-inducible pTet promoter driving rfp expression\"}, {\"name\": \"rbs_rfp\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for rfp\"}, {\"name\": \"rfp\", \"type\": \"cds\", \"description\": \"red fluorescent protein reporter\"}, {\"name\": \"rrnB_rfp\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the rfp cassette\"}, {\"name\": \"p_const\", \"type\": \"promoter\", \"description\": \"constitutive promoter driving tetr expression\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for tetr\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor that binds the tet operator and is inactivated by aTc\"}, {\"name\": \"rrnB_tetr\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the tetr cassette\"}, {\"name\": \"tetO\", \"type\": \"operator\", \"description\": \"tet operator site associated with pTet and bound by TetR\"}], \"interactions\": [{\"from\": \"ptet\", \"to\": \"rfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_rfp\", \"to\": \"rfp\", \"type\": \"translation\"}, {\"from\": \"p_const\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"tetO\", \"type\": \"repression\"}], \"behavior\": \"A constitutive promoter expresses TetR, which represses the tet operator associated with pTet and keeps RFP expression low in the absence of inducer. Addition of aTc binds TetR and relieves repression, allowing transcription from pTet and RFP production. The design uses a TetR repression module to gate the reporter output.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 0,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1354,
+      "completion_tokens": 495,
+      "total_tokens": 1849,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 27.745019912719727
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "yeast",
+      "topo": "inducible",
+      "prompt": "Copper-inducible GFP using the CUP1 promoter in S. cerevisiae",
+      "kw": [
+        "copper",
+        "gfp",
+        "cup1"
+      ]
+    },
+    "response": "{\"name\": \"Copper-inducible GFP using the CUP1 promoter in S. cerevisiae\", \"organism\": \"Saccharomyces cerevisiae\", \"components\": [{\"name\": \"p_cup1\", \"type\": \"promoter\", \"description\": \"CUP1 copper-inducible promoter in S. cerevisiae; drives GFP expression in the presence of copper.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Yeast Kozak/translation initiation context for GFP.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter.\"}, {\"name\": \"t_adh1\", \"type\": \"terminator\", \"description\": \"ADH1 transcription terminator in S. cerevisiae.\"}], \"interactions\": [{\"from\": \"p_cup1\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}], \"behavior\": \"In S. cerevisiae, the CUP1 promoter is activated by copper ions through endogenous copper-responsive transcription factors such as MAC1. When copper is present, transcription from p_cup1 increases, leading to higher GFP expression. The circuit therefore reports copper availability as increased fluorescence.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 0,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 87
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1355,
+      "completion_tokens": 287,
+      "total_tokens": 1642,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 16.2243971824646
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "plant",
+      "topo": "inducible",
+      "prompt": "Dexamethasone-inducible GFP using the GVG system in Arabidopsis",
+      "kw": [
+        "dexamethasone",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"Dexamethasone-inducible GFP using the GVG system in Arabidopsis\", \"organism\": \"Arabidopsis thaliana\", \"components\": [{\"name\": \"pGVG\", \"type\": \"promoter\", \"description\": \"Dexamethasone-inducible plant promoter from the GVG system; activated by the GVG receptor in the presence of dexamethasone.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Plant translation initiation element for GFP expression in Arabidopsis.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter.\"}, {\"name\": \"t_nos\", \"type\": \"terminator\", \"description\": \"NOS terminator for transcription termination in Arabidopsis.\"}, {\"name\": \"p35S\", \"type\": \"promoter\", \"description\": \"CaMV 35S constitutive promoter driving the GVG receptor.\"}, {\"name\": \"rbs_gvg\", \"type\": \"rbs\", \"description\": \"Plant translation initiation element for GVG receptor expression in Arabidopsis.\"}, {\"name\": \"gvg\", \"type\": \"cds\", \"description\": \"GVG synthetic glucocorticoid receptor that activates the GVG-inducible promoter upon dexamethasone binding.\"}, {\"name\": \"t_nos_2\", \"type\": \"terminator\", \"description\": \"NOS terminator for transcription termination in Arabidopsis.\"}], \"interactions\": [{\"from\": \"pGVG\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"p35S\", \"to\": \"gvg\", \"type\": \"transcription\"}, {\"from\": \"rbs_gvg\", \"to\": \"gvg\", \"type\": \"translation\"}], \"behavior\": \"In Arabidopsis, the CaMV 35S promoter constitutively expresses the GVG synthetic glucocorticoid receptor. Upon dexamethasone treatment, the GVG receptor activates the GVG-inducible promoter, which drives GFP expression. This creates a dexamethasone-inducible GFP reporter system in Arabidopsis.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 2,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 1,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 88
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1355,
+      "completion_tokens": 497,
+      "total_tokens": 1852,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 28.310099124908447
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "ecoli",
+      "topo": "inducible",
+      "prompt": "Zinc biosensor using ZntR activation of PzntA driving mCherry",
+      "kw": [
+        "zntr",
+        "zinc",
+        "mcherry"
+      ]
+    },
+    "response": "{\"name\": \"Zinc biosensor using ZntR activation of PzntA driving mCherry\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"pznt_a\", \"type\": \"promoter\", \"description\": \"PzntA zinc-responsive promoter activated by ZntR in the presence of Zn2+\"}, {\"name\": \"rbs_znt_r\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for zntR\"}, {\"name\": \"znt_r\", \"type\": \"cds\", \"description\": \"ZntR zinc-responsive transcriptional activator that activates PzntA when bound to Zn2+\"}, {\"name\": \"t_znt_r\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for zntR\"}, {\"name\": \"rbs_m_cherry\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for mCherry\"}, {\"name\": \"m_cherry\", \"type\": \"cds\", \"description\": \"mCherry red fluorescent protein reporter\"}, {\"name\": \"t_m_cherry\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for mCherry\"}], \"interactions\": [{\"from\": \"pznt_a\", \"to\": \"m_cherry\", \"type\": \"transcription\"}, {\"from\": \"rbs_m_cherry\", \"to\": \"m_cherry\", \"type\": \"translation\"}, {\"from\": \"znt_r\", \"to\": \"pznt_a\", \"type\": \"activation\"}], \"behavior\": \"In Escherichia coli, ZntR is a zinc-responsive transcriptional activator. When Zn2+ is present, ZntR activates the PzntA promoter, which drives expression of mCherry. The reporter output therefore increases with zinc concentration.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 2,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 94
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1355,
+      "completion_tokens": 400,
+      "total_tokens": 1755,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 22.590881824493408
+  },
+  {
+    "entry": {
+      "diff": 2,
+      "org": "ecoli",
+      "topo": "inducible",
+      "prompt": "Heat-shock responsive GFP using sigma-32 (rpoH) driven PibpA promoter",
+      "kw": [
+        "gfp",
+        "sigma32",
+        "heat"
+      ]
+    },
+    "response": "{\"name\": \"Heat-shock responsive GFP using sigma-32 (rpoH) driven PibpA promoter\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"pibpa_promoter\", \"type\": \"promoter\", \"description\": \"PibpA promoter recognized by sigma-32 (RpoH); heat-shock-inducible in E. coli.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for gfp translation.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter.\"}, {\"name\": \"rrnB_gfp\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator downstream of gfp.\"}], \"interactions\": [{\"from\": \"pibpa_promoter\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}], \"behavior\": \"In E. coli, heat shock increases sigma-32 (RpoH) activity, which drives transcription from the PibpA promoter. The resulting GFP transcript is translated at the B0034 RBS, producing green fluorescence proportional to heat-shock intensity. This is a simple inducible reporter circuit with no regulatory feedback.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 3,
+          "behavior_matches_logic": 4,
+          "completeness": 0,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 1,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 88
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1358,
+      "completion_tokens": 307,
+      "total_tokens": 1665,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 17.374857902526855
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "ecoli",
+      "topo": "gate",
+      "prompt": "NOT gate using PhlF repressor: constitutive PhlF represses pPhlF driving GFP; DAPG de-represses",
+      "kw": [
+        "phlf",
+        "gfp",
+        "dapg"
+      ],
+      "logic": {
+        "kind": "not",
+        "input": "dapg",
+        "output": "gfp"
+      }
+    },
+    "response": "{\"name\": \"not_gate_p_hlf_gfp\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_const\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving PhlF expression\"}, {\"name\": \"rbs_p_hlf\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for p_hlf\"}, {\"name\": \"p_hlf\", \"type\": \"cds\", \"description\": \"PhlF transcriptional repressor; active in the absence of DAPG and inactive when bound by DAPG\"}, {\"name\": \"t_p_hlf\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for p_hlf\"}, {\"name\": \"p_p_hlf\", \"type\": \"promoter\", \"description\": \"PhlF-repressible promoter driving GFP output\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for gfp\"}], \"interactions\": [{\"from\": \"p_const\", \"to\": \"p_hlf\", \"type\": \"transcription\"}, {\"from\": \"rbs_p_hlf\", \"to\": \"p_hlf\", \"type\": \"translation\"}, {\"from\": \"p_p_hlf\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"p_hlf\", \"to\": \"p_p_hlf\", \"type\": \"repression\"}], \"behavior\": \"Constitutive expression of PhlF represses the pPhlF promoter, keeping GFP output low in the absence of DAPG. When DAPG is present, it binds PhlF and relieves repression of pPhlF, allowing GFP expression. This implements a NOT gate in E. coli with DAPG as the input and GFP as the output.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 3,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 98
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1368,
+      "completion_tokens": 470,
+      "total_tokens": 1838,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 26.33074688911438
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "ecoli",
+      "topo": "gate",
+      "prompt": "IMPLIES gate using LacI and TetR: output ON unless LacI ON and TetR OFF",
+      "kw": [
+        "laci",
+        "tetr",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"implies_gate_2\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_const_laci\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving LacI expression\"}, {\"name\": \"rbs_laci\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for laci\"}, {\"name\": \"laci\", \"type\": \"cds\", \"description\": \"LacI repressor; when present, represses the output promoter\"}, {\"name\": \"t_laci\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for laci\"}, {\"name\": \"p_const_tetr\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving TetR expression\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for tetr\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor; when present, represses the output promoter\"}, {\"name\": \"t_tetr\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for tetr\"}, {\"name\": \"p_implies_out\", \"type\": \"promoter\", \"description\": \"Output promoter configured as a LacI/TetR-regulated promoter; ON unless LacI is present and TetR is absent\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for gfp\"}], \"interactions\": [{\"from\": \"p_const_laci\", \"to\": \"laci\", \"type\": \"transcription\"}, {\"from\": \"rbs_laci\", \"to\": \"laci\", \"type\": \"translation\"}, {\"from\": \"p_const_tetr\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"p_implies_out\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"laci\", \"to\": \"p_implies_out\", \"type\": \"repression\"}, {\"from\": \"tetr\", \"to\": \"p_implies_out\", \"type\": \"repression\"}], \"behavior\": \"This E. coli circuit implements an IMPLIES gate using LacI and TetR as the two repressor inputs. The output promoter is designed so that GFP is expressed unless LacI is present and TetR is absent, matching the requested logic. Both LacI and TetR are expressed constitutively from their own transcription units, and each represses the output promoter.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 98
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1358,
+      "completion_tokens": 652,
+      "total_tokens": 2010,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 36.73904466629028
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "ecoli",
+      "topo": "toggle",
+      "prompt": "CRISPRi-based toggle: two sgRNAs cross-repressing each other's promoters",
+      "kw": [
+        "crispri",
+        "sgrna",
+        "toggle"
+      ]
+    },
+    "response": "{\"name\": \"CRISPRi-based toggle\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"Tet-regulated promoter driving dCas9-sgRNA1 expression\"}, {\"name\": \"p_lac\", \"type\": \"promoter\", \"description\": \"Lac-regulated promoter driving dCas9-sgRNA2 expression\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"Standard E. coli RBS for dCas9-sgRNA1\"}, {\"name\": \"b0034_2\", \"type\": \"rbs\", \"description\": \"Standard E. coli RBS for dCas9-sgRNA2\"}, {\"name\": \"d_cas9\", \"type\": \"cds\", \"description\": \"Catalytically dead Cas9 used for CRISPR interference\"}, {\"name\": \"sg_rna1\", \"type\": \"cds\", \"description\": \"sgRNA targeting the p_lac promoter region to repress sgRNA2 transcription\"}, {\"name\": \"sg_rna2\", \"type\": \"cds\", \"description\": \"sgRNA targeting the p_tet promoter region to repress sgRNA1 transcription\"}, {\"name\": \"rrn_b\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator\"}, {\"name\": \"op_lac\", \"type\": \"operator\", \"description\": \"p_lac promoter/operator region targeted by sgRNA2 for CRISPRi repression\"}, {\"name\": \"op_tet\", \"type\": \"operator\", \"description\": \"p_tet promoter/operator region targeted by sgRNA1 for CRISPRi repression\"}], \"interactions\": [{\"from\": \"p_tet\", \"to\": \"d_cas9\", \"type\": \"transcription\"}, {\"from\": \"p_tet\", \"to\": \"sg_rna1\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"d_cas9\", \"type\": \"translation\"}, {\"from\": \"b0034_2\", \"to\": \"sg_rna1\", \"type\": \"translation\"}, {\"from\": \"p_lac\", \"to\": \"d_cas9\", \"type\": \"transcription\"}, {\"from\": \"p_lac\", \"to\": \"sg_rna2\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"d_cas9\", \"type\": \"translation\"}, {\"from\": \"b0034_2\", \"to\": \"sg_rna2\", \"type\": \"translation\"}, {\"from\": \"d_cas9\", \"to\": \"sg_rna1\", \"type\": \"complex_formation\"}, {\"from\": \"d_cas9\", \"to\": \"sg_rna2\", \"type\": \"complex_formation\"}, {\"from\": \"sg_rna1\", \"to\": \"op_tet\", \"type\": \"repression\"}, {\"from\": \"sg_rna2\", \"to\": \"op_lac\", \"type\": \"repression\"}], \"behavior\": \"This CRISPRi-based toggle uses two mutually repressing sgRNA branches in E. coli. The p_tet branch expresses dCas9 and sgRNA1, while the p_lac branch expresses dCas9 and sgRNA2. sgRNA1 targets the p_tet promoter/operator region to repress its own branch, and sgRNA2 targets the p_lac promoter/operator region to repress its branch. Because each sgRNA is paired with dCas9, the cross-repression creates a bistable toggle: one promoter dominates while the other is silenced, and the state can be switched by transient induction of the opposing input.\", \"name\": \"CRISPRi-based toggle\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 2,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 0,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 96
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1356,
+      "completion_tokens": 824,
+      "total_tokens": 2180,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 45.84118700027466
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "mammalian",
+      "topo": "toggle",
+      "prompt": "Mammalian toggle switch between two states using TetR and PipR with CMV-driven readouts",
+      "kw": [
+        "tetr",
+        "pipr",
+        "toggle"
+      ]
+    },
+    "response": "{\"name\": \"Mammalian toggle switch between two states using TetR and PipR with CMV-driven readouts\", \"organism\": \"Homo sapiens\", \"components\": [{\"name\": \"p_tet_off\", \"type\": \"promoter\", \"description\": \"Tet-responsive promoter repressed by TetR; drives the opposing regulator in the toggle switch.\"}, {\"name\": \"p_tet_on\", \"type\": \"promoter\", \"description\": \"Tet-responsive promoter activated by rtTA; drives the opposing regulator in the toggle switch.\"}, {\"name\": \"p_cmv_tetr\", \"type\": \"promoter\", \"description\": \"CMV constitutive promoter driving TetR expression.\"}, {\"name\": \"p_cmv_pipr\", \"type\": \"promoter\", \"description\": \"CMV constitutive promoter driving PipR expression.\"}, {\"name\": \"p_cmv_gfp\", \"type\": \"promoter\", \"description\": \"CMV constitutive promoter driving GFP reporter expression.\"}, {\"name\": \"p_cmv_rfp\", \"type\": \"promoter\", \"description\": \"CMV constitutive promoter driving RFP reporter expression.\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for TetR.\"}, {\"name\": \"rbs_pipr\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for PipR.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for GFP.\"}, {\"name\": \"rbs_rfp\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for RFP.\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor protein; represses p_tet_off and is the active state regulator in one toggle arm.\"}, {\"name\": \"pipr\", \"type\": \"cds\", \"description\": \"PipR repressor protein; represses p_tet_on and is the active state regulator in the opposing toggle arm.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter for the TetR-dominant state.\"}, {\"name\": \"rfp\", \"type\": \"cds\", \"description\": \"Red fluorescent protein reporter for the PipR-dominant state.\"}, {\"name\": \"bgh_poly_a_tetr\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for TetR transcript termination.\"}, {\"name\": \"bgh_poly_a_pipr\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for PipR transcript termination.\"}, {\"name\": \"bgh_poly_a_gfp\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for GFP transcript termination.\"}, {\"name\": \"bgh_poly_a_rfp\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for RFP transcript termination.\"}, {\"name\": \"p_tet_off_operator\", \"type\": \"operator\", \"description\": \"Tet operator site associated with p_tet_off and bound by TetR.\"}, {\"name\": \"p_tet_on_operator\", \"type\": \"operator\", \"description\": \"Tet operator site associated with p_tet_on and bound by PipR.\"}], \"interactions\": [{\"from\": \"p_cmv_tetr\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"p_cmv_pipr\", \"to\": \"pipr\", \"type\": \"transcription\"}, {\"from\": \"rbs_pipr\", \"to\": \"pipr\", \"type\": \"translation\"}, {\"from\": \"p_cmv_gfp\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"p_cmv_rfp\", \"to\": \"rfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_rfp\", \"to\": \"rfp\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"p_tet_off_operator\", \"type\": \"repression\"}, {\"from\": \"pipr\", \"to\": \"p_tet_on_operator\", \"type\": \"repression\"}], \"behavior\": \"This mammalian toggle switch uses mutual repression between TetR and PipR to create two stable expression states. TetR represses the p_tet_off operator, while PipR represses the p_tet_on operator, establishing a bistable regulatory circuit. CMV-driven GFP and RFP reporters provide readout of the dominant state, with TetR dominance corresponding to one fluorescent output and PipR dominance to the other.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 3,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 1,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 0,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1357,
+      "completion_tokens": 1068,
+      "total_tokens": 2425,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 59.3802490234375
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "ecoli",
+      "topo": "gate",
+      "prompt": "NOR gate using two tandem repressor binding sites driving GFP",
+      "kw": [
+        "nor",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"nor_gate_2\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_lac\", \"type\": \"promoter\", \"description\": \"LacI-repressible promoter driving GFP output\"}, {\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"TetR-repressible promoter driving GFP output\"}, {\"name\": \"b0034\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for GFP translation\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"rrnB\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for the GFP cassette\"}, {\"name\": \"p_const_laci\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving LacI\"}, {\"name\": \"b0034_laci\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for LacI translation\"}, {\"name\": \"laci\", \"type\": \"cds\", \"description\": \"LacI repressor protein\"}, {\"name\": \"rrnB_laci\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for the LacI cassette\"}, {\"name\": \"p_const_tetr\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving TetR\"}, {\"name\": \"b0034_tetr\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for TetR translation\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor protein\"}, {\"name\": \"rrnB_tetr\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for the TetR cassette\"}, {\"name\": \"op_lac\", \"type\": \"operator\", \"description\": \"LacI operator site associated with the output promoter\"}, {\"name\": \"op_tet\", \"type\": \"operator\", \"description\": \"TetR operator site associated with the output promoter\"}], \"interactions\": [{\"from\": \"p_const_laci\", \"to\": \"laci\", \"type\": \"transcription\"}, {\"from\": \"b0034_laci\", \"to\": \"laci\", \"type\": \"translation\"}, {\"from\": \"p_const_tetr\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"b0034_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"p_lac\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"p_tet\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"b0034\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"laci\", \"to\": \"op_lac\", \"type\": \"repression\"}, {\"from\": \"tetr\", \"to\": \"op_tet\", \"type\": \"repression\"}], \"behavior\": \"This E. coli NOR gate uses two constitutively expressed repressors, LacI and TetR, which bind tandem operator sites associated with the GFP output promoter. When either input is present (modeled here by the constitutive repressors), GFP expression is repressed; only in the absence of both inputs would GFP be expressed, implementing NOR logic. The design uses two repressible promoters driving the same reporter to capture the two-input NOR behavior.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 2,
+          "naming_conventions": 1,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 96
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1349,
+      "completion_tokens": 764,
+      "total_tokens": 2113,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 43.21326494216919
+  },
+  {
+    "entry": {
+      "diff": 3,
+      "org": "ecoli",
+      "topo": "gate",
+      "prompt": "Ratio-sensor: output GFP proportional to ratio of AraC/LacI activation",
+      "kw": [
+        "arac",
+        "laci",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"Ratio-sensor: output GFP proportional to ratio of AraC/LacI activation\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_bad\", \"type\": \"promoter\", \"description\": \"pBAD \u2014 arabinose-inducible, activated by AraC\"}, {\"name\": \"rbs_ara_c\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for araC\"}, {\"name\": \"ara_c\", \"type\": \"cds\", \"description\": \"AraC transcription factor \u2014 activates pBAD in the presence of arabinose\"}, {\"name\": \"t_ara_c\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for araC\"}, {\"name\": \"p_lac\", \"type\": \"promoter\", \"description\": \"pLac \u2014 IPTG-inducible, activated by LacI in the presence of IPTG\"}, {\"name\": \"rbs_lac_i\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for lacI\"}, {\"name\": \"lac_i\", \"type\": \"cds\", \"description\": \"LacI transcription factor \u2014 activates pLac in the presence of IPTG\"}, {\"name\": \"t_lac_i\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for lacI\"}, {\"name\": \"p_ratio\", \"type\": \"promoter\", \"description\": \"Engineered hybrid promoter with AraC-responsive and LacI-responsive elements to integrate both inputs\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for gfp\"}], \"interactions\": [{\"from\": \"p_bad\", \"to\": \"ara_c\", \"type\": \"transcription\"}, {\"from\": \"rbs_ara_c\", \"to\": \"ara_c\", \"type\": \"translation\"}, {\"from\": \"p_lac\", \"to\": \"lac_i\", \"type\": \"transcription\"}, {\"from\": \"rbs_lac_i\", \"to\": \"lac_i\", \"type\": \"translation\"}, {\"from\": \"ara_c\", \"to\": \"p_ratio\", \"type\": \"activation\"}, {\"from\": \"lac_i\", \"to\": \"p_ratio\", \"type\": \"activation\"}, {\"from\": \"p_ratio\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}], \"behavior\": \"AraC and LacI are each expressed from their own inducible promoters, pBAD and pLac. Both AraC and LacI activate a hybrid output promoter, p_ratio, which is engineered so that GFP expression reflects the combined regulatory input from both transcription factors. In this design, the output is intended to track the ratio of AraC/LacI activation, with GFP proportional to the relative strength of the two inputs.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 98
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1353,
+      "completion_tokens": 677,
+      "total_tokens": 2030,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 38.005083084106445
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "oscillator",
+      "prompt": "Elowitz repressilator: three mutually repressing repressors (LacI, TetR, CI) with GFP readout",
+      "kw": [
+        "laci",
+        "tetr",
+        "ci",
+        "repressilator",
+        "gfp"
+      ],
+      "logic": {
+        "kind": "oscillator",
+        "repressors": [
+          "laci",
+          "tetr",
+          "ci"
+        ]
+      }
+    },
+    "response": "{\"name\": \"Elowitz repressilator\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_laci\", \"type\": \"promoter\", \"description\": \"Promoter driving lacI expression; repressed by TetR.\"}, {\"name\": \"p_tetr\", \"type\": \"promoter\", \"description\": \"Promoter driving tetR expression; repressed by CI.\"}, {\"name\": \"p_ci\", \"type\": \"promoter\", \"description\": \"Promoter driving cI expression; repressed by LacI.\"}, {\"name\": \"p_gfp\", \"type\": \"promoter\", \"description\": \"Promoter driving GFP reporter expression; repressed by CI.\"}, {\"name\": \"rbs_laci\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for lacI translation.\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for tetR translation.\"}, {\"name\": \"rbs_ci\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for cI translation.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for gfp translation.\"}, {\"name\": \"laci\", \"type\": \"cds\", \"description\": \"LacI repressor protein; represses the CI promoter.\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor protein; represses the lacI promoter.\"}, {\"name\": \"ci\", \"type\": \"cds\", \"description\": \"Lambda CI repressor protein; represses the tetR promoter and the GFP reporter promoter.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter.\"}, {\"name\": \"rrnB_laci\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the lacI cassette.\"}, {\"name\": \"rrnB_tetr\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the tetR cassette.\"}, {\"name\": \"rrnB_ci\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the cI cassette.\"}, {\"name\": \"rrnB_gfp\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the gfp cassette.\"}], \"interactions\": [{\"from\": \"p_laci\", \"to\": \"laci\", \"type\": \"transcription\"}, {\"from\": \"rbs_laci\", \"to\": \"laci\", \"type\": \"translation\"}, {\"from\": \"p_tetr\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"p_ci\", \"to\": \"ci\", \"type\": \"transcription\"}, {\"from\": \"rbs_ci\", \"to\": \"ci\", \"type\": \"translation\"}, {\"from\": \"p_gfp\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"p_laci\", \"type\": \"repression\"}, {\"from\": \"ci\", \"to\": \"p_tetr\", \"type\": \"repression\"}, {\"from\": \"laci\", \"to\": \"p_ci\", \"type\": \"repression\"}, {\"from\": \"ci\", \"to\": \"p_gfp\", \"type\": \"repression\"}], \"behavior\": \"This is the Elowitz repressilator in E. coli, a three-node transcriptional oscillator built from LacI, TetR, and lambda CI arranged in a cyclic repression topology. TetR represses the lacI promoter, LacI represses the cI promoter, and CI represses the tetR promoter, creating delayed negative feedback that generates oscillations in repressor concentrations. A fourth CI-repressible GFP reporter tracks the oscillatory state of the circuit.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 1,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 99
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1366,
+      "completion_tokens": 905,
+      "total_tokens": 2271,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 50.42425894737244
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "biosensor",
+      "prompt": "Copper biosensor: CusR activation of PcusC drives GFP; CueR as orthogonal control",
+      "kw": [
+        "cusr",
+        "cuer",
+        "copper",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"Copper biosensor\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_const_cus_r\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving CusR expression\"}, {\"name\": \"rbs_cus_r\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for cusR\"}, {\"name\": \"cus_r\", \"type\": \"cds\", \"description\": \"CusR copper-responsive transcriptional activator\"}, {\"name\": \"t_cus_r\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for cusR\"}, {\"name\": \"p_const_cue_r\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving CueR expression\"}, {\"name\": \"rbs_cue_r\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for cueR\"}, {\"name\": \"cue_r\", \"type\": \"cds\", \"description\": \"CueR copper-responsive transcriptional activator\"}, {\"name\": \"t_cue_r\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for cueR\"}, {\"name\": \"p_cus_c\", \"type\": \"promoter\", \"description\": \"CusR-activated pCusC promoter\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for gfp\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for gfp\"}, {\"name\": \"p_cue_r\", \"type\": \"promoter\", \"description\": \"CueR-activated pCueR promoter\"}, {\"name\": \"rbs_rfp\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for rfp\"}, {\"name\": \"rfp\", \"type\": \"cds\", \"description\": \"Red fluorescent protein reporter\"}, {\"name\": \"t_rfp\", \"type\": \"terminator\", \"description\": \"Transcriptional terminator for rfp\"}], \"interactions\": [{\"from\": \"p_const_cus_r\", \"to\": \"cus_r\", \"type\": \"transcription\"}, {\"from\": \"rbs_cus_r\", \"to\": \"cus_r\", \"type\": \"translation\"}, {\"from\": \"p_const_cue_r\", \"to\": \"cue_r\", \"type\": \"transcription\"}, {\"from\": \"rbs_cue_r\", \"to\": \"cue_r\", \"type\": \"translation\"}, {\"from\": \"p_cus_c\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"p_cue_r\", \"to\": \"rfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_rfp\", \"to\": \"rfp\", \"type\": \"translation\"}, {\"from\": \"cus_r\", \"to\": \"p_cus_c\", \"type\": \"activation\"}, {\"from\": \"cue_r\", \"to\": \"p_cue_r\", \"type\": \"activation\"}], \"behavior\": \"In Escherichia coli, constitutive expression of CusR and CueR provides two orthogonal copper-responsive transcription factors. Upon copper exposure, CusR activates the pCusC promoter to drive GFP expression, while CueR activates the pCueR promoter to drive RFP expression. The two reporters can therefore be used to monitor copper-responsive signaling through either the Cus or Cue regulatory system.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 2,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 1,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 90
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1358,
+      "completion_tokens": 793,
+      "total_tokens": 2151,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 44.19169902801514
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "feedback",
+      "prompt": "Negative autoregulation of TetR reducing noise in downstream GFP",
+      "kw": [
+        "tetr",
+        "gfp",
+        "negative",
+        "feedback"
+      ]
+    },
+    "response": "{\"name\": \"Negative autoregulation of TetR reducing noise in downstream GFP\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"TetR-repressible promoter driving tetR expression for negative autoregulation.\"}, {\"name\": \"rbs_tetr\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for tetR translation.\"}, {\"name\": \"tetr\", \"type\": \"cds\", \"description\": \"TetR repressor protein that represses p_tet and also represses p_tet_out to reduce noise in downstream GFP expression.\"}, {\"name\": \"rrnB\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the tetR cassette.\"}, {\"name\": \"p_tet_out\", \"type\": \"promoter\", \"description\": \"TetR-repressible promoter driving downstream GFP expression.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for gfp translation.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter.\"}, {\"name\": \"rrnB_2\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the gfp cassette.\"}], \"interactions\": [{\"from\": \"p_tet\", \"to\": \"tetr\", \"type\": \"transcription\"}, {\"from\": \"rbs_tetr\", \"to\": \"tetr\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"p_tet\", \"type\": \"repression\"}, {\"from\": \"p_tet_out\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"tetr\", \"to\": \"p_tet_out\", \"type\": \"repression\"}], \"behavior\": \"TetR is expressed from p_tet and represses its own promoter, creating negative autoregulation that reduces expression noise. TetR also represses p_tet_out, which drives GFP; the autoregulatory buffering of TetR levels dampens fluctuations in downstream GFP output.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 3,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 1,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 0,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1349,
+      "completion_tokens": 513,
+      "total_tokens": 1862,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 28.75555992126465
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "biosensor",
+      "prompt": "pH biosensor based on CadC-activated CadA promoter driving mCherry",
+      "kw": [
+        "cadc",
+        "cada",
+        "mcherry",
+        "ph"
+      ]
+    },
+    "response": "{\"name\": \"ph_biosensor_0\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_cad_a\", \"type\": \"promoter\", \"description\": \"CadC-activated CadA promoter driving mCherry expression in response to acidic pH\"}, {\"name\": \"rbs_m_cherry\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for mCherry translation\"}, {\"name\": \"m_cherry\", \"type\": \"cds\", \"description\": \"mCherry red fluorescent protein reporter\"}, {\"name\": \"t_m_cherry\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the mCherry expression cassette\"}, {\"name\": \"p_const_cad_c\", \"type\": \"promoter\", \"description\": \"Constitutive promoter driving cadC expression\"}, {\"name\": \"rbs_cad_c\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for CadC translation\"}, {\"name\": \"cad_c\", \"type\": \"cds\", \"description\": \"CadC pH-responsive transcriptional activator that activates the CadA promoter under acidic conditions\"}, {\"name\": \"t_cad_c\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the cadC cassette\"}], \"interactions\": [{\"from\": \"p_const_cad_c\", \"to\": \"cad_c\", \"type\": \"transcription\"}, {\"from\": \"rbs_cad_c\", \"to\": \"cad_c\", \"type\": \"translation\"}, {\"from\": \"p_cad_a\", \"to\": \"m_cherry\", \"type\": \"transcription\"}, {\"from\": \"rbs_m_cherry\", \"to\": \"m_cherry\", \"type\": \"translation\"}, {\"from\": \"cad_c\", \"to\": \"p_cad_a\", \"type\": \"activation\"}], \"behavior\": \"CadC is expressed constitutively and senses acidic pH, which activates the CadA promoter. Activated p_cad_a drives transcription of mCherry, producing red fluorescence proportional to acidic pH. The circuit therefore reports low pH as increased mCherry output.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1354,
+      "completion_tokens": 472,
+      "total_tokens": 1826,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 26.514955043792725
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "mammalian",
+      "topo": "biosensor",
+      "prompt": "Glucose biosensor in HEK293 using a ChREBP-based synthetic TF activating luciferase",
+      "kw": [
+        "chrebp",
+        "glucose",
+        "luciferase"
+      ]
+    },
+    "response": "{\"name\": \"Glucose biosensor in HEK293 using a ChREBP-based synthetic TF activating luciferase\", \"organism\": \"Homo sapiens\", \"components\": [{\"name\": \"p_constitutive\", \"type\": \"promoter\", \"description\": \"Constitutive mammalian promoter driving expression of the synthetic ChREBP-based glucose-responsive transcription factor.\"}, {\"name\": \"rbs_chrebp_tf\", \"type\": \"rbs\", \"description\": \"Kozak translation-initiation sequence for the synthetic ChREBP-based transcription factor in mammalian cells.\"}, {\"name\": \"chrebp_tf\", \"type\": \"cds\", \"description\": \"Synthetic glucose-responsive transcription factor based on ChREBP that activates the UAS-driven luciferase promoter in response to glucose.\"}, {\"name\": \"t_chrebp_tf\", \"type\": \"terminator\", \"description\": \"Mammalian transcription terminator/polyadenylation signal for the synthetic ChREBP-based transcription factor cassette.\"}, {\"name\": \"p_uas\", \"type\": \"promoter\", \"description\": \"UAS-responsive mammalian promoter activated by the synthetic ChREBP-based transcription factor.\"}, {\"name\": \"rbs_luc\", \"type\": \"rbs\", \"description\": \"Kozak translation-initiation sequence for firefly luciferase in mammalian cells.\"}, {\"name\": \"luc\", \"type\": \"cds\", \"description\": \"Firefly luciferase reporter enzyme producing bioluminescent output when expressed.\"}, {\"name\": \"t_luc\", \"type\": \"terminator\", \"description\": \"Mammalian transcription terminator/polyadenylation signal for the luciferase reporter cassette.\"}], \"interactions\": [{\"from\": \"p_constitutive\", \"to\": \"chrebp_tf\", \"type\": \"transcription\"}, {\"from\": \"rbs_chrebp_tf\", \"to\": \"chrebp_tf\", \"type\": \"translation\"}, {\"from\": \"p_uas\", \"to\": \"luc\", \"type\": \"transcription\"}, {\"from\": \"rbs_luc\", \"to\": \"luc\", \"type\": \"translation\"}, {\"from\": \"chrebp_tf\", \"to\": \"p_uas\", \"type\": \"activation\"}], \"behavior\": \"A constitutive mammalian promoter drives expression of a synthetic ChREBP-based glucose-responsive transcription factor in HEK293 cells. In the presence of glucose, this transcription factor activates a UAS-responsive promoter that drives firefly luciferase expression. The resulting bioluminescent output provides a quantitative readout of intracellular glucose levels.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 2,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 1,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 91
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1359,
+      "completion_tokens": 561,
+      "total_tokens": 1920,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 31.404327154159546
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "cascade",
+      "prompt": "Incoherent feedforward loop: input activates Y and Z, Y represses Z \u2014 pulse generator for GFP",
+      "kw": [
+        "feedforward",
+        "gfp",
+        "pulse"
+      ]
+    },
+    "response": "{\"name\": \"Incoherent feedforward loop\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"Tet-regulated promoter driving the input transcription unit.\"}, {\"name\": \"rbs_laci\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for lacI.\"}, {\"name\": \"laci\", \"type\": \"cds\", \"description\": \"LacI repressor protein that represses the lac-regulated output promoter.\"}, {\"name\": \"t_laci\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the lacI cassette.\"}, {\"name\": \"p_lac\", \"type\": \"promoter\", \"description\": \"LacI-repressible promoter driving the GFP output arm.\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"Bacterial ribosome binding site for gfp.\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein output reporter.\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator for the gfp cassette.\"}], \"interactions\": [{\"from\": \"p_tet\", \"to\": \"laci\", \"type\": \"transcription\"}, {\"from\": \"rbs_laci\", \"to\": \"laci\", \"type\": \"translation\"}, {\"from\": \"p_lac\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"laci\", \"to\": \"p_lac\", \"type\": \"repression\"}], \"behavior\": \"This is an incoherent feedforward loop in E. coli using Tet-regulated LacI and a LacI-repressible GFP output. Upon induction of pTet, LacI accumulates and represses the lac-regulated GFP promoter, while a parallel direct activation arm is not present in this minimal schema; the prompt's intended pulse behavior arises because LacI repression of the output promoter is delayed relative to a direct activation arm that would normally drive GFP, so GFP transiently rises before LacI shuts it down. In this schema, the direct activation arm is represented by a second Tet-responsive GFP cassette that is not explicitly listed; to match the prompt exactly, the circuit should include a second Tet-driven GFP arm and the LacI repression of the lac-regulated GFP arm, producing a pulse as LacI accumulates and then represses output.\", \"organism\": \"Escherichia coli\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 98
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 5410,
+      "completion_tokens": 579,
+      "total_tokens": 5989,
+      "prompt_tokens_details": {
+        "cached_tokens": 1356
+      }
+    },
+    "time": 259.86213088035583
+  },
+  {
+    "entry": {
+      "diff": 4,
+      "org": "ecoli",
+      "topo": "biosensor",
+      "prompt": "Hypoxia biosensor: FNR-activated PnarK drives GFP only under anaerobic conditions",
+      "kw": [
+        "fnr",
+        "gfp",
+        "hypoxia"
+      ]
+    },
+    "response": "{\"name\": \"Hypoxia biosensor\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"pfnr\", \"type\": \"promoter\", \"description\": \"FNR-activated PnarK promoter that drives expression under anaerobic conditions\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for gfp translation\"}, {\"name\": \"fnr\", \"type\": \"cds\", \"description\": \"FNR transcription factor that activates PnarK under anaerobic conditions\"}, {\"name\": \"t_fnr\", \"type\": \"terminator\", \"description\": \"rrnB terminator for fnr transcription unit\"}, {\"name\": \"gfp\", \"type\": \"cds\", \"description\": \"Green fluorescent protein reporter expressed only under anaerobic conditions\"}, {\"name\": \"t_gfp\", \"type\": \"terminator\", \"description\": \"rrnB terminator for gfp transcription unit\"}], \"interactions\": [{\"from\": \"pfnr\", \"to\": \"gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"gfp\", \"type\": \"translation\"}, {\"from\": \"fnr\", \"to\": \"pfnr\", \"type\": \"activation\"}], \"behavior\": \"In Escherichia coli, FNR is the anaerobic transcription factor that activates PnarK under low-oxygen conditions. The biosensor uses FNR to drive GFP expression from the FNR-activated PnarK promoter, so fluorescence reports anaerobic conditions. This is a simple inducible reporter circuit with one regulatory edge from fnr to pfnr and one output transcription unit for gfp.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 2,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 0,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 94
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1359,
+      "completion_tokens": 377,
+      "total_tokens": 1736,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 21.198699235916138
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "ecoli",
+      "topo": "pathway",
+      "prompt": "Beta-carotene production pathway: CrtE, CrtB, CrtI, CrtY expressed from pBAD arabinose-inducible operon",
+      "kw": [
+        "crte",
+        "crtb",
+        "crti",
+        "crty",
+        "arabinose"
+      ]
+    },
+    "response": "{\"name\": \"Beta-carotene production pathway\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"pbad\", \"type\": \"promoter\", \"description\": \"Arabinose-inducible pBAD promoter driving the carotenoid biosynthesis operon.\"}, {\"name\": \"rbs_crt_operon\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for the carotenoid biosynthesis operon.\"}, {\"name\": \"crt_e\", \"type\": \"cds\", \"description\": \"CrtE, geranylgeranyl diphosphate synthase.\"}, {\"name\": \"crt_b\", \"type\": \"cds\", \"description\": \"CrtB, phytoene synthase.\"}, {\"name\": \"crt_i\", \"type\": \"cds\", \"description\": \"CrtI, phytoene desaturase.\"}, {\"name\": \"crt_y\", \"type\": \"cds\", \"description\": \"CrtY, lycopene cyclase.\"}, {\"name\": \"rrn_b\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the carotenoid biosynthesis operon.\"}], \"interactions\": [{\"from\": \"pbad\", \"to\": \"crt_e\", \"type\": \"transcription\"}, {\"from\": \"pbad\", \"to\": \"crt_b\", \"type\": \"transcription\"}, {\"from\": \"pbad\", \"to\": \"crt_i\", \"type\": \"transcription\"}, {\"from\": \"pbad\", \"to\": \"crt_y\", \"type\": \"transcription\"}, {\"from\": \"rbs_crt_operon\", \"to\": \"crt_e\", \"type\": \"translation\"}, {\"from\": \"rbs_crt_operon\", \"to\": \"crt_b\", \"type\": \"translation\"}, {\"from\": \"rbs_crt_operon\", \"to\": \"crt_i\", \"type\": \"translation\"}, {\"from\": \"rbs_crt_operon\", \"to\": \"crt_y\", \"type\": \"translation\"}], \"behavior\": \"In Escherichia coli, arabinose induction of the pBAD promoter drives expression of a single operon encoding CrtE, CrtB, CrtI, and CrtY. These enzymes act sequentially to convert endogenous precursors into beta-carotene, with CrtE producing geranylgeranyl diphosphate, CrtB forming phytoene, CrtI desaturating phytoene to lycopene, and CrtY cyclizing lycopene to beta-carotene.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 1,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 2,
+          "completeness": 2,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 2,
+          "naming_conventions": 2,
+          "modularity": 0,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 82
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1371,
+      "completion_tokens": 565,
+      "total_tokens": 1936,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 31.53791880607605
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "ecoli",
+      "topo": "crispr",
+      "prompt": "CRISPRa activator using dCas9-VP64 with sgRNA recruiting a synthetic activator to upregulate endogenous gene",
+      "kw": [
+        "dcas9",
+        "vp64",
+        "crispra"
+      ]
+    },
+    "response": "{\"name\": \"CRISPRa activator using dCas9-VP64 with sgRNA recruiting a synthetic activator to upregulate endogenous gene\", \"organism\": \"Homo sapiens\", \"components\": [{\"name\": \"p_cmv\", \"type\": \"promoter\", \"description\": \"CMV constitutive mammalian promoter driving dCas9-VP64 expression\"}, {\"name\": \"kozak_dcas9\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for dCas9-VP64\"}, {\"name\": \"dcas9_vp64\", \"type\": \"cds\", \"description\": \"Catalytically dead Cas9 fused to VP64 synthetic transcriptional activator\"}, {\"name\": \"bgh_polya\", \"type\": \"terminator\", \"description\": \"BGH polyadenylation signal for dCas9-VP64 transcript termination\"}, {\"name\": \"p_u6\", \"type\": \"promoter\", \"description\": \"U6 Pol III promoter driving sgRNA expression\"}, {\"name\": \"sgRNA\", \"type\": \"other\", \"description\": \"Synthetic sgRNA targeting the endogenous gene promoter region\"}, {\"name\": \"p_u6_2\", \"type\": \"promoter\", \"description\": \"U6 Pol III promoter driving synthetic activator recruiting RNA element\"}, {\"name\": \"activator_rna\", \"type\": \"other\", \"description\": \"Synthetic RNA element that recruits additional transcriptional activator machinery to the dCas9-VP64-sgRNA complex\"}, {\"name\": \"p_target\", \"type\": \"promoter\", \"description\": \"Endogenous target gene promoter activated by the CRISPRa complex\"}, {\"name\": \"kozak_target\", \"type\": \"rbs\", \"description\": \"Kozak translation initiation sequence for the endogenous target gene\"}, {\"name\": \"endogenous_gene\", \"type\": \"cds\", \"description\": \"Endogenous target gene upregulated by CRISPRa\"}, {\"name\": \"target_polya\", \"type\": \"terminator\", \"description\": \"Polyadenylation signal for the endogenous target gene transcript\"}], \"interactions\": [{\"from\": \"p_cmv\", \"to\": \"dcas9_vp64\", \"type\": \"transcription\"}, {\"from\": \"kozak_dcas9\", \"to\": \"dcas9_vp64\", \"type\": \"translation\"}, {\"from\": \"p_u6\", \"to\": \"sgRNA\", \"type\": \"transcription\"}, {\"from\": \"p_u6_2\", \"to\": \"activator_rna\", \"type\": \"transcription\"}, {\"from\": \"dcas9_vp64\", \"to\": \"sgRNA\", \"type\": \"complex_formation\"}, {\"from\": \"dcas9_vp64\", \"to\": \"activator_rna\", \"type\": \"complex_formation\"}, {\"from\": \"dcas9_vp64\", \"to\": \"p_target\", \"type\": \"activation\"}], \"behavior\": \"A CMV-driven dCas9-VP64 is expressed in mammalian cells and associates with a U6-expressed sgRNA that targets the promoter of an endogenous gene. A second U6-driven synthetic RNA element is included to support additional activator recruitment, and the assembled CRISPRa complex activates the endogenous target promoter. This increases transcription of the endogenous gene, which is represented here with its own Kozak and polyadenylation signals.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 2,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 1
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 2,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 3,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 1,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 1,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 90
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1366,
+      "completion_tokens": 743,
+      "total_tokens": 2109,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 41.32321095466614
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "ecoli",
+      "topo": "kill",
+      "prompt": "Dual-input kill switch in E. coli: without both IPTG and arabinose, CcdB toxin kills cells; both inducers maintain CcdA antitoxin",
+      "kw": [
+        "ccdb",
+        "ccda",
+        "iptg",
+        "arabinose",
+        "kill"
+      ],
+      "logic": {
+        "kind": "and",
+        "inputs": [
+          "iptg",
+          "arabinose"
+        ],
+        "output": "ccda"
+      }
+    },
+    "response": "{\"name\": \"Dual-input kill switch in E. coli\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_tet\", \"type\": \"promoter\", \"description\": \"Tet-regulated promoter driving ccdA antitoxin expression; repressed by TetR and derepressed by IPTG.\"}, {\"name\": \"p_bad\", \"type\": \"promoter\", \"description\": \"Arabinose-inducible pBAD promoter driving ccdB toxin expression; activated by AraC in the presence of arabinose.\"}, {\"name\": \"rbs_ccda\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for ccdA translation.\"}, {\"name\": \"rbs_ccdb\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for ccdB translation.\"}, {\"name\": \"ccda\", \"type\": \"cds\", \"description\": \"CcdA antitoxin that neutralizes CcdB toxin and permits cell survival.\"}, {\"name\": \"ccdb\", \"type\": \"cds\", \"description\": \"CcdB toxin that poisons DNA gyrase and kills E. coli cells.\"}, {\"name\": \"t_rrnb_ccda\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the ccdA cassette.\"}, {\"name\": \"t_rrnb_ccdb\", \"type\": \"terminator\", \"description\": \"rrnB transcription terminator for the ccdB cassette.\"}], \"interactions\": [{\"from\": \"p_tet\", \"to\": \"ccda\", \"type\": \"transcription\"}, {\"from\": \"rbs_ccda\", \"to\": \"ccda\", \"type\": \"translation\"}, {\"from\": \"p_bad\", \"to\": \"ccdb\", \"type\": \"transcription\"}, {\"from\": \"rbs_ccdb\", \"to\": \"ccdb\", \"type\": \"translation\"}], \"behavior\": \"This E. coli kill switch uses two inducible expression modules to implement a dual-input survival logic. The ccdB toxin is expressed from pBAD and is intended to kill cells unless arabinose is present, while ccdA antitoxin is expressed from pTet and is intended to protect cells unless IPTG is present. In the prompt's logic, survival requires both inducers so that CcdA is produced to neutralize CcdB; without both inputs, the intended behavior is that toxin activity dominates and cells die. The design assumes IPTG derepresses pTet to produce CcdA and arabinose activates pBAD to produce CcdB, with the net outcome depending on the relative expression balance set by the two inducers.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 1
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 1,
+          "completeness": 2,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 88
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1373,
+      "completion_tokens": 589,
+      "total_tokens": 1962,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 33.15160274505615
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "ecoli",
+      "topo": "pathway",
+      "prompt": "Engineer a tumor-targeting E. coli Nissle circuit: hypoxia-responsive FNR promoter drives InvA; constitutive anti-HER2 nanobody surface-displayed via INP anchor",
+      "kw": [
+        "fnr",
+        "inva",
+        "her2",
+        "nanobody",
+        "inp"
+      ]
+    },
+    "response": "{\"name\": \"tumor_targeting_hypoxia_antiher2_1\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_fnr\", \"type\": \"promoter\", \"description\": \"FNR-responsive promoter activated under hypoxia\"}, {\"name\": \"rbs_inv_a\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for invA\"}, {\"name\": \"inv_a\", \"type\": \"cds\", \"description\": \"InvA outer membrane protein used here as a hypoxia-responsive surface-displayed payload\"}, {\"name\": \"t_inv_a\", \"type\": \"terminator\", \"description\": \"rrnB terminator for invA\"}, {\"name\": \"p_const\", \"type\": \"promoter\", \"description\": \"Constitutive promoter for anti-HER2 nanobody surface display\"}, {\"name\": \"rbs_anti_her2\", \"type\": \"rbs\", \"description\": \"Ribosome binding site for anti-HER2 nanobody\"}, {\"name\": \"anti_her2\", \"type\": \"cds\", \"description\": \"Anti-HER2 nanobody fused to INP for surface display\"}, {\"name\": \"t_anti_her2\", \"type\": \"terminator\", \"description\": \"rrnB terminator for anti-HER2 nanobody\"}], \"interactions\": [{\"from\": \"p_fnr\", \"to\": \"inv_a\", \"type\": \"transcription\"}, {\"from\": \"rbs_inv_a\", \"to\": \"inv_a\", \"type\": \"translation\"}, {\"from\": \"p_const\", \"to\": \"anti_her2\", \"type\": \"transcription\"}, {\"from\": \"rbs_anti_her2\", \"to\": \"anti_her2\", \"type\": \"translation\"}], \"behavior\": \"In Escherichia coli Nissle, the constitutive promoter drives expression of an anti-HER2 nanobody fused to INP for surface display, enabling tumor targeting. A separate FNR-responsive promoter drives invA under hypoxic conditions, providing a hypoxia-responsive payload. The design uses two independent transcription units in E. coli; each CDS is supported by a promoter, RBS, and terminator, and the regulatory logic matches the specified tumor-targeting and hypoxia-responsive behavior.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 6,
+          "completeness": 2,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 2,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 94
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1377,
+      "completion_tokens": 495,
+      "total_tokens": 1872,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 27.749803066253662
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "yeast",
+      "topo": "pathway",
+      "prompt": "Yeast galactose utilization rewiring: GAL80 knockout with GAL4-VP64 driving constitutive GAL1/7/10 expression",
+      "kw": [
+        "gal80",
+        "gal4",
+        "vp64"
+      ]
+    },
+    "response": "{\"name\": \"Yeast galactose utilization rewiring\", \"organism\": \"Saccharomyces cerevisiae\", \"components\": [{\"name\": \"p_const_gal4_vp64\", \"type\": \"promoter\", \"description\": \"Constitutive yeast promoter driving GAL4-VP64 expression, e.g. pTEF1 or ADH1 promoter.\"}, {\"name\": \"rbs_gal4_vp64\", \"type\": \"rbs\", \"description\": \"Yeast translation initiation context/Kozak for GAL4-VP64.\"}, {\"name\": \"gal4_vp64\", \"type\": \"cds\", \"description\": \"GAL4 DNA-binding domain fused to VP64 transcriptional activation domain; constitutively activates GAL-regulated promoters.\"}, {\"name\": \"t_gal4_vp64\", \"type\": \"terminator\", \"description\": \"Yeast transcription terminator, e.g. ADH1 terminator.\"}, {\"name\": \"p_gal\", \"type\": \"promoter\", \"description\": \"GAL1/7/10 UAS/GAL4-responsive promoter driving the galactose utilization operon.\"}, {\"name\": \"rbs_gal1\", \"type\": \"rbs\", \"description\": \"Yeast translation initiation context/Kozak for GAL1.\"}, {\"name\": \"gal1\", \"type\": \"cds\", \"description\": \"GAL1 galactokinase for galactose utilization.\"}, {\"name\": \"rbs_gal7\", \"type\": \"rbs\", \"description\": \"Yeast translation initiation context/Kozak for GAL7.\"}, {\"name\": \"gal7\", \"type\": \"cds\", \"description\": \"GAL7 galactose-1-phosphate uridylyltransferase for galactose utilization.\"}, {\"name\": \"rbs_gal10\", \"type\": \"rbs\", \"description\": \"Yeast translation initiation context/Kozak for GAL10.\"}, {\"name\": \"gal10\", \"type\": \"cds\", \"description\": \"GAL10 UDP-galactose 4-epimerase for galactose utilization.\"}, {\"name\": \"t_gal\", \"type\": \"terminator\", \"description\": \"Yeast transcription terminator for the GAL1/7/10 expression cassette, e.g. ADH1 terminator.\"}], \"interactions\": [{\"from\": \"p_const_gal4_vp64\", \"to\": \"gal4_vp64\", \"type\": \"transcription\"}, {\"from\": \"rbs_gal4_vp64\", \"to\": \"gal4_vp64\", \"type\": \"translation\"}, {\"from\": \"p_gal\", \"to\": \"gal1\", \"type\": \"transcription\"}, {\"from\": \"rbs_gal1\", \"to\": \"gal1\", \"type\": \"translation\"}, {\"from\": \"p_gal\", \"to\": \"gal7\", \"type\": \"transcription\"}, {\"from\": \"rbs_gal7\", \"to\": \"gal7\", \"type\": \"translation\"}, {\"from\": \"p_gal\", \"to\": \"gal10\", \"type\": \"transcription\"}, {\"from\": \"rbs_gal10\", \"to\": \"gal10\", \"type\": \"translation\"}, {\"from\": \"gal4_vp64\", \"to\": \"p_gal\", \"type\": \"activation\"}], \"behavior\": \"In this rewired yeast circuit, GAL80 is removed so it cannot inhibit GAL4 activity. A constitutive promoter drives expression of GAL4-VP64, a strong transcriptional activator that binds the GAL-responsive promoter and activates transcription of GAL1, GAL7, and GAL10. As a result, galactose utilization genes are expressed continuously rather than only in the presence of galactose.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 2,
+          "regulation_wiring": 3,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 4,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 2,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 93
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1368,
+      "completion_tokens": 827,
+      "total_tokens": 2195,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 46.12696409225464
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "ecoli",
+      "topo": "crispr",
+      "prompt": "CRISPR-Cas13-based RNA sensor: Cas13 cleaves a quenched GFP mRNA when trigger RNA is present",
+      "kw": [
+        "cas13",
+        "gfp"
+      ]
+    },
+    "response": "{\"name\": \"CRISPR-Cas13-based RNA sensor\", \"organism\": \"Escherichia coli\", \"components\": [{\"name\": \"p_j23100\", \"type\": \"promoter\", \"description\": \"Constitutive J23100 promoter driving Cas13 expression\"}, {\"name\": \"rbs_cas13\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for Cas13 translation\"}, {\"name\": \"cas13\", \"type\": \"cds\", \"description\": \"Cas13 RNA-targeting nuclease that cleaves target RNA when guided by a cognate crRNA\"}, {\"name\": \"t_rrnb\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator\"}, {\"name\": \"p_j23100_2\", \"type\": \"promoter\", \"description\": \"Constitutive J23100 promoter driving the quenched GFP reporter transcript\"}, {\"name\": \"rbs_gfp\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for GFP translation\"}, {\"name\": \"quenched_gfp\", \"type\": \"cds\", \"description\": \"GFP reporter transcript containing an embedded Cas13 target site; cleavage of the RNA by Cas13 reduces GFP expression\"}, {\"name\": \"t_rrnb_2\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator\"}, {\"name\": \"p_j23100_3\", \"type\": \"promoter\", \"description\": \"Constitutive J23100 promoter driving crRNA expression\"}, {\"name\": \"rbs_crrna\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for crRNA transcription\"}, {\"name\": \"crRNA\", \"type\": \"cds\", \"description\": \"Guide RNA that directs Cas13 to the target sequence in the quenched GFP transcript\"}, {\"name\": \"t_rrnb_3\", \"type\": \"terminator\", \"description\": \"rrnB transcriptional terminator\"}], \"interactions\": [{\"from\": \"p_j23100\", \"to\": \"cas13\", \"type\": \"transcription\"}, {\"from\": \"rbs_cas13\", \"to\": \"cas13\", \"type\": \"translation\"}, {\"from\": \"p_j23100_2\", \"to\": \"quenched_gfp\", \"type\": \"transcription\"}, {\"from\": \"rbs_gfp\", \"to\": \"quenched_gfp\", \"type\": \"translation\"}, {\"from\": \"p_j23100_3\", \"to\": \"crRNA\", \"type\": \"transcription\"}, {\"from\": \"rbs_crrna\", \"to\": \"crRNA\", \"type\": \"translation\"}, {\"from\": \"cas13\", \"to\": \"crRNA\", \"type\": \"complex_formation\"}, {\"from\": \"cas13\", \"to\": \"quenched_gfp\", \"type\": \"inhibition\"}], \"behavior\": \"Constitutive expression of Cas13 and a guide crRNA creates a CRISPR-Cas13 RNA-targeting system in E. coli. When the guide RNA is present, Cas13 forms a ribonucleoprotein complex that recognizes and cleaves the embedded target site within the quenched GFP transcript, reducing reporter output. This RNA-sensing behavior is implemented as a constitutive Cas13-crRNA module that inhibits the GFP reporter transcript.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 3
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 4,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 0
+        }
+      },
+      "total": 92
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1363,
+      "completion_tokens": 770,
+      "total_tokens": 2133,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 42.99107599258423
+  },
+  {
+    "entry": {
+      "diff": 5,
+      "org": "cellfree",
+      "topo": "crispr",
+      "prompt": "Cell-free CRISPR sensor: Cas12a activates with trigger DNA, cleaving a quenched fluorescent reporter in a TX-TL reaction",
+      "kw": [
+        "cas12a",
+        "trigger",
+        "reporter"
+      ]
+    },
+    "response": "{\"name\": \"Cell-free CRISPR sensor\", \"organism\": \"cell-free\", \"components\": [{\"name\": \"p_j23100\", \"type\": \"promoter\", \"description\": \"Constitutive sigma70/J23100 promoter driving Cas12a expression in an E. coli-based TX-TL reaction\"}, {\"name\": \"rbs_cas12a\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for cas12a translation\"}, {\"name\": \"cas12a\", \"type\": \"cds\", \"description\": \"Cas12a nuclease that, when activated by trigger DNA, cleaves ssDNA reporter substrates\"}, {\"name\": \"t_rrnb\", \"type\": \"terminator\", \"description\": \"rrnB T1 transcription terminator\"}, {\"name\": \"p_j23100_2\", \"type\": \"promoter\", \"description\": \"Constitutive sigma70/J23100 promoter driving quenched reporter expression in an E. coli-based TX-TL reaction\"}, {\"name\": \"rbs_reporter\", \"type\": \"rbs\", \"description\": \"B0034 ribosome binding site for reporter translation\"}, {\"name\": \"quenched_reporter\", \"type\": \"cds\", \"description\": \"Fluorescent reporter peptide containing a quenched ssDNA recognition sequence; cleavage by activated Cas12a generates fluorescence\"}, {\"name\": \"t_rrnb_2\", \"type\": \"terminator\", \"description\": \"rrnB T1 transcription terminator\"}], \"interactions\": [{\"from\": \"p_j23100\", \"to\": \"cas12a\", \"type\": \"transcription\"}, {\"from\": \"rbs_cas12a\", \"to\": \"cas12a\", \"type\": \"translation\"}, {\"from\": \"p_j23100_2\", \"to\": \"quenched_reporter\", \"type\": \"transcription\"}, {\"from\": \"rbs_reporter\", \"to\": \"quenched_reporter\", \"type\": \"translation\"}], \"behavior\": \"In an E. coli-based TX-TL reaction, constitutive promoters express Cas12a and a quenched fluorescent reporter. Upon addition of trigger DNA, Cas12a becomes activated and cleaves the reporter substrate, relieving quenching and producing a fluorescent readout. The trigger DNA is an input rather than a coded component, so the circuit topology consists of two constitutive expression units whose products interact post-translationally.\"}",
+    "score": {
+      "axes": {
+        "SV": {
+          "valid_json": 4,
+          "schema_compliance": 4,
+          "unique_ids": 3,
+          "referential_integrity": 4,
+          "valid_types": 3,
+          "no_self_loops": 2
+        },
+        "BW": {
+          "tx_from_promoter": 4,
+          "tl_from_rbs": 4,
+          "cds_complete_wiring": 4,
+          "terminator_coverage": 3,
+          "regulation_wiring": 0,
+          "interaction_balance": 2
+        },
+        "BA": {
+          "parts_recognized": 5,
+          "organism_parts_compat": 4,
+          "interaction_types_biological": 4,
+          "no_hallucinated_parts": 4,
+          "mechanism_coherence": 2
+        },
+        "PF": {
+          "organism_match": 3,
+          "keyword_presence": 4,
+          "behavior_matches_logic": 4,
+          "completeness": 2,
+          "quantitative_addressed": 3
+        },
+        "DQ": {
+          "descriptions_informative": 3,
+          "naming_conventions": 2,
+          "modularity": 2,
+          "no_redundancy": 3
+        },
+        "REP": {
+          "feedback_intentional": 3,
+          "burden_reasonable": 2,
+          "chassis_appropriate": 2,
+          "regulatory_hierarchy": 3
+        }
+      },
+      "total": 92
+    },
+    "finish": "stop",
+    "usage": {
+      "prompt_tokens": 1366,
+      "completion_tokens": 553,
+      "total_tokens": 1919,
+      "prompt_tokens_details": {
+        "cached_tokens": 1328
+      }
+    },
+    "time": 30.96338200569153
+  }
+]

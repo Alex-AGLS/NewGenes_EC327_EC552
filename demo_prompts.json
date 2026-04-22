@@ -1,0 +1,92 @@
+[
+  {
+    "id": "demo_01_cancer_sensor",
+    "diff": 5,
+    "org": "mammalian",
+    "topo": "biosensor",
+    "prompt": "HEK293-based synthetic immune sensor: CD19-scFv–CD3ζ synNotch receptor activates tTA upon antigen binding; tTA drives constitutive IL-12 secretion and a safety kill-switch iCasp9 under rapamycin-inducible FKBP dimerizer",
+    "kw": ["synnotch","il12","icasp9","rapamycin"],
+    "reason": "Complex mammalian synbio: receptor + TF cascade + payload + kill-switch. Tests layered topology."
+  },
+  {
+    "id": "demo_02_carbon_capture",
+    "diff": 5,
+    "org": "ecoli",
+    "topo": "pathway",
+    "prompt": "Formate-assimilation pathway for CO2 fixation in E. coli: FDH1 converts CO2 to formate, FtfL-Fch-FolD-MtdA convert formate to methylene-THF, Gcv cleaves glycine; all driven by PgapA with RBS library optimization for flux balance",
+    "kw": ["fdh1","ftfl","mtda","gcv","pgapa"],
+    "reason": "Long enzymatic cascade, tests metabolic topology reasoning."
+  },
+  {
+    "id": "demo_03_light_switch",
+    "diff": 4,
+    "org": "ecoli",
+    "topo": "inducible",
+    "prompt": "Blue-light inducible gene expression: EL222 transcription factor (blue-light-activated) drives Plac-EL222 hybrid promoter controlling mCherry; dark-state represses, 470nm light activates within 60s",
+    "kw": ["el222","blue-light","plac","mcherry"],
+    "reason": "Optogenetic — visually and temporally interesting demo."
+  },
+  {
+    "id": "demo_04_bacterial_oscillator",
+    "diff": 5,
+    "org": "ecoli",
+    "topo": "oscillator",
+    "prompt": "Dual-feedback delayed oscillator in E. coli: araC activates pBAD which drives LacI and LuxI; LacI represses pLac driving AraC (negative loop); LuxI produces AHL which activates LuxR→pLuxR→GFP reporter; tunable period via ssrA degradation tags",
+    "kw": ["arac","laci","luxi","luxr","ssra","oscillator"],
+    "reason": "Classic Elowitz-style oscillator with QS reporter; visually striking topology."
+  },
+  {
+    "id": "demo_05_heavy_metal_sensor",
+    "diff": 4,
+    "org": "ecoli",
+    "topo": "biosensor",
+    "prompt": "Arsenic biosensor for drinking water: ArsR repressor binds ArsO operator in the absence of arsenic, derepresses on As(III) binding; ArsR regulates PArs driving colored output via amilCP chromoprotein (naked-eye readout)",
+    "kw": ["arsr","arsenic","amilcp","biosensor"],
+    "reason": "Real-world application (water testing), simple elegant topology."
+  },
+  {
+    "id": "demo_06_pathogen_logic",
+    "diff": 5,
+    "org": "ecoli",
+    "topo": "gate",
+    "prompt": "Three-input AND gate for pathogen detection: outputs sfGFP only when all three inputs present — AHL (LuxR-activated pLuxR), IPTG (lactose repressor LacI removal on pLac), and aTc (TetR removal on pTet) — via tandem promoter cascade with T7 polymerase split into N/C halves that reconstitute on presence of intein-joining helper",
+    "kw": ["ahl","iptg","atc","split-t7","intein","and-gate"],
+    "reason": "Hard multi-input logic; uses split-T7 + intein (advanced biology)."
+  },
+  {
+    "id": "demo_07_gut_therapeutic",
+    "diff": 5,
+    "org": "ecoli",
+    "topo": "pathway",
+    "prompt": "Anti-inflammatory probiotic for IBD: butyrate-responsive promoter Pbuk senses gut inflammation (low butyrate), activates secreted IL-10 cytokine (via OmpA secretion signal) and anti-TNF nanobody (OmpA-tagged); switches off when butyrate restored — senses and self-limits",
+    "kw": ["pbuk","il10","tnf","ompa","butyrate","probiotic"],
+    "reason": "Living therapeutic; combines sensing + protein secretion + self-limitation."
+  },
+  {
+    "id": "demo_08_recombinase_memory",
+    "diff": 4,
+    "org": "ecoli",
+    "topo": "toggle",
+    "prompt": "Single-use recombinase memory circuit: Bxb1 integrase (constitutive under pJ23100) flips an inverted pTet cassette once on aTc induction, permanently turning on downstream RFP — no reversibility without excisionase gp47; acts as 1-bit write-once genetic memory",
+    "kw": ["bxb1","integrase","recombinase","memory","rfp"],
+    "reason": "Epigenetic-style permanent switching; unique circuit class."
+  },
+  {
+    "id": "demo_09_plant_stress",
+    "diff": 4,
+    "org": "plant",
+    "topo": "inducible",
+    "prompt": "Drought-responsive Arabidopsis reporter: DREB2A transcription factor under the rd29A stress-promoter activates a DRE-containing synthetic promoter driving luciferase; provides quantitative, real-time luminescence readout of water stress in field conditions",
+    "kw": ["dreb2a","rd29a","dre","luciferase","drought"],
+    "reason": "Plant synbio; agriculturally relevant application."
+  },
+  {
+    "id": "demo_10_cell_free_diagnostic",
+    "diff": 4,
+    "org": "cellfree",
+    "topo": "biosensor",
+    "prompt": "Paper-based cell-free Zika RNA diagnostic: toehold switch with 30-nt trigger region complementary to Zika NS5 mRNA; in presence of Zika RNA the hairpin opens, exposing RBS for LacZ-alpha production; colorimetric readout via X-gal on paper substrate",
+    "kw": ["toehold","zika","ns5","lacz","x-gal","diagnostic"],
+    "reason": "Paper-based diagnostic (Collins lab style); airgap-deployable."
+  }
+]

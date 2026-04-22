@@ -1,0 +1,111 @@
+{
+  "mac_llama_q3_full_100": {
+    "runtime": "llama.cpp Metal (macOS)",
+    "hardware": "Apple M5 Max, 64 GB unified",
+    "quantization": "Q3_K_S (GGUF, 11 GB, 3.59 BPW)",
+    "ctx": 16384,
+    "max_tokens": -1,
+    "n": 100,
+    "avg_total": 83.99,
+    "axes_avg": {
+      "SV": 18.6,
+      "BW": 17.17,
+      "BA": 16.2,
+      "PF": 15.09,
+      "DQ": 8.05,
+      "REP": 8.88
+    },
+    "by_difficulty": {
+      "1": 92.1,
+      "2": 87.2,
+      "3": 71.7,
+      "4": 81.75,
+      "5": 87.2
+    },
+    "by_organism": {
+      "bacillus": 94.0,
+      "cellfree": 91.0,
+      "ecoli": 85.44,
+      "mammalian": 81.18,
+      "plant": 73.6,
+      "yeast": 77.0
+    },
+    "by_topology": {
+      "biosensor": 81.78,
+      "cascade": 91.67,
+      "crispr": 86.5,
+      "feedback": 64.75,
+      "gate": 65.87,
+      "inducible": 87.2,
+      "kill": 87.33,
+      "oscillator": 86.5,
+      "pathway": 86.89,
+      "qs": 93.25,
+      "reporter": 92.1,
+      "toggle": 89.2
+    },
+    "length_hits": 21,
+    "completion_tokens": 558003,
+    "decode_time_s": 25006.8,
+    "agg_tok_per_s": 22.31
+  },
+  "jetson_q3_unlimited_3": {
+    "runtime": "llama.cpp CUDA (Jetson Orin NX)",
+    "hardware": "Jetson Orin NX 16 GB",
+    "quantization": "Q3_K_S (GGUF, 11 GB, 3.59 BPW)",
+    "ctx": 4096,
+    "max_tokens": -1,
+    "n": 3,
+    "avg_total": 60.67,
+    "axes_avg": {
+      "SV": 13.33,
+      "BW": 12.67,
+      "BA": 12.0,
+      "PF": 10.67,
+      "DQ": 5.33,
+      "REP": 6.67
+    },
+    "by_difficulty": {
+      "1": 92.0,
+      "3": 0.0,
+      "5": 90.0
+    },
+    "length_hits": 1,
+    "completion_tokens": 7836,
+    "decode_time_s": 4149.5,
+    "agg_tok_per_s": 1.89
+  },
+  "jetson_q3_run1_stopped": {
+    "runtime": "llama.cpp CUDA (Jetson Orin NX)",
+    "hardware": "Jetson Orin NX 16 GB",
+    "quantization": "Q3_K_S (GGUF, 11 GB, 3.59 BPW)",
+    "ctx": 2048,
+    "max_tokens": 1800,
+    "n": 65,
+    "avg_total": 36.09,
+    "axes_avg": {
+      "SV": 8.0,
+      "BW": 7.51,
+      "BA": 7.28,
+      "PF": 6.15,
+      "DQ": 3.2,
+      "REP": 3.95
+    },
+    "by_difficulty": {
+      "1": 82.95,
+      "2": 17.55,
+      "3": 16.8,
+      "4": 0.0
+    },
+    "length_hits": 42,
+    "completion_tokens": 101100,
+    "decode_time_s": 53456.1,
+    "agg_tok_per_s": 1.89,
+    "note": "stopped at 65/100, capped max_tokens=1800 \u2192 budget cliff on d2+"
+  },
+  "cross_run_comparison": {
+    "speed_ratio_mac_vs_jetson": "11.8x",
+    "ctx_ratio": "4.0x (Mac 16k vs Jetson 4k)",
+    "note": "Same Q3_K_S GGUF on both. Difference is hardware + runtime + ctx budget."
+  }
+}

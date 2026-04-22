@@ -1,0 +1,116 @@
+{
+  "judge": "Claude Opus 4.7 (Newgenes session, Apr 20 2026)",
+  "config_under_review": "Qwen 3.5 27B Q8 MLX + LoRA + Chen & Truong system prompt (Cell D)",
+  "structural_avg_on_these_items": 91.8,
+  "methodology": "Each item scored 0-100 on four axes: chassis correctness, logic fidelity, component completeness, biological plausibility. Overall score is the minimum-weighted average — a circuit that fails logic cannot be rescued by clean parts.",
+  "items": [
+    {
+      "prompt": "CRISPRi-based toggle: two sgRNAs cross-repressing each other's promoters",
+      "topo": "toggle",
+      "diff": 3,
+      "struct_score": 96,
+      "bio_score": 50,
+      "verdict": "LOGIC INVERSION",
+      "reasoning": "sgRNA1 is expressed from p_tet and repression edge targets op_tet -- i.e. sgRNA1 represses its own source (self-repression, not cross-repression). Similarly sgRNA2 from p_lac targets op_lac. Behavior claims mutual cross-repression but the interaction graph implements two independent autorepressed loops. Result is not bistable. Structural rubric missed this because both CDSes have full TU and a cyclic graph exists on paper."
+    },
+    {
+      "prompt": "Mammalian toggle switch between two states using TetR and PipR with CMV-driven readouts",
+      "topo": "toggle",
+      "diff": 3,
+      "struct_score": 93,
+      "bio_score": 40,
+      "verdict": "LOGIC INVERSION",
+      "reasoning": "Both regulators (TetR, PipR) AND both reporters (GFP, RFP) are driven by constitutive CMV promoters. The p_tet_off/p_tet_on operators are regulated but nothing transcribes through them -- they dangle. So TetR/PipR repress operators that aren't driving anything, and the reporters are always on independent of state. No bistability. No state-linked readout."
+    },
+    {
+      "prompt": "Elowitz repressilator: three mutually repressing repressors (LacI, TetR, CI) with GFP readout",
+      "topo": "oscillator",
+      "diff": 4,
+      "struct_score": 99,
+      "bio_score": 90,
+      "verdict": "CORRECT",
+      "reasoning": "Cyclic repression topology is right: TetR->p_laci, LacI->p_ci, CI->p_tetr. CI-repressed GFP as monitor is canonical. Naming is non-standard (p_laci means 'promoter driving LacI' which the description clarifies is a tet-repressible promoter) but the description is self-consistent. Would oscillate."
+    },
+    {
+      "prompt": "Negative autoregulation of TetR reducing noise in downstream GFP",
+      "topo": "feedback",
+      "diff": 4,
+      "struct_score": 93,
+      "bio_score": 92,
+      "verdict": "CORRECT",
+      "reasoning": "p_tet drives TetR which represses p_tet -- canonical negative autoregulation (Rosenfeld/Alon motif). TetR also represses p_tet_out driving GFP. Autoregulation lowers TetR variance, which tightens GFP steady-state -- matches the noise-reduction claim. Clean design."
+    },
+    {
+      "prompt": "Beta-carotene production pathway: CrtE, CrtB, CrtI, CrtY expressed from pBAD arabinose-inducible operon",
+      "topo": "pathway",
+      "diff": 5,
+      "struct_score": 82,
+      "bio_score": 85,
+      "verdict": "MOSTLY CORRECT",
+      "reasoning": "Enzyme order is biochemically correct: GGPP(CrtE) -> phytoene(CrtB) -> lycopene(CrtI) -> beta-carotene(CrtY). pBAD drives the operon under arabinose -- standard. Simplification: one shared RBS for all four CDSes. Real E. coli operons usually have a dedicated RBS per CDS for balanced translation. Design is structurally simplified but biochemically correct."
+    },
+    {
+      "prompt": "CRISPRa activator using dCas9-VP64 with sgRNA recruiting a synthetic activator to upregulate endogenous gene",
+      "topo": "crispr",
+      "diff": 5,
+      "struct_score": 90,
+      "bio_score": 85,
+      "verdict": "CORRECT (chassis override)",
+      "reasoning": "Prompt entry was labeled E. coli but VP64 is a mammalian activation domain; model correctly overrode and chose Homo sapiens with CMV + U6 Pol III for sgRNA. The 'activator_rna' hand-waves the SAM/MS2 aptamer recruitment but the concept is real. dCas9-VP64 -> p_target activation edge is correct. Good biological judgment."
+    },
+    {
+      "prompt": "Dual-input kill switch in E. coli: without both IPTG and arabinose, CcdB toxin kills cells; both inducers maintain CcdA antitoxin",
+      "topo": "kill",
+      "diff": 5,
+      "struct_score": 88,
+      "bio_score": 50,
+      "verdict": "LOGIC INVERSION",
+      "reasoning": "Prompt wants NAND survival logic: both inducers -> CcdA > CcdB -> live; missing either -> die. Model put CcdA on pTet (wrong inducer -- pTet responds to aTc, not IPTG) and CcdB on pBAD (arabinose-induced). Without arabinose, CcdB is never expressed, so cells live regardless of IPTG -- the opposite of the required behavior. Model's own behavior text acknowledges the logic is under-specified ('depending on the relative expression balance')."
+    },
+    {
+      "prompt": "Engineer a tumor-targeting E. coli Nissle circuit: hypoxia-responsive FNR promoter drives InvA; constitutive anti-HER2 nanobody surface-displayed via INP anchor",
+      "topo": "pathway",
+      "diff": 5,
+      "struct_score": 94,
+      "bio_score": 88,
+      "verdict": "CORRECT",
+      "reasoning": "pFNR is genuinely hypoxia-activated in E. coli. InvA from Yersinia enables invasion of eukaryotic cells. INP-anchored nanobody surface display is a published technique. Two independent TUs is the right topology. Only minor miss: behavior could mention that InvA under hypoxia localizes invasion to the tumor microenvironment (that's the whole point of the hypoxia sensor) but the parts are all correct."
+    },
+    {
+      "prompt": "Yeast galactose utilization rewiring: GAL80 knockout with GAL4-VP64 driving constitutive GAL1/7/10 expression",
+      "topo": "pathway",
+      "diff": 5,
+      "struct_score": 93,
+      "bio_score": 80,
+      "verdict": "CORRECT (simplified)",
+      "reasoning": "GAL80 KO -> GAL4-VP64 always active -> GAL UAS-driven GAL1/7/10 constitutive. Correct mechanism. Stretch: yeast doesn't have bacterial-style operons; GAL1/7/10 share a divergent/adjacent arrangement but each has its own promoter in reality. Representing the three as sharing one p_gal is a useful abstraction but not how yeast actually transcribes them."
+    },
+    {
+      "prompt": "CRISPR-Cas13-based RNA sensor: Cas13 cleaves a quenched GFP mRNA when trigger RNA is present",
+      "topo": "crispr",
+      "diff": 5,
+      "struct_score": 92,
+      "bio_score": 60,
+      "verdict": "WRONG SENSING MODE",
+      "reasoning": "Prompt describes collateral-cleavage sensing: trigger RNA activates Cas13, which then non-specifically cleaves a quenched reporter (SHERLOCK-style). Model implemented direct targeting: crRNA guides Cas13 to cleave the GFP mRNA itself. There is no trigger RNA in the design, and the mechanism reduces to constitutive GFP-mRNA knockdown rather than trigger-responsive sensing. Topology-correct, biology-wrong."
+    },
+    {
+      "prompt": "Cell-free CRISPR sensor: Cas12a activates with trigger DNA, cleaving a quenched fluorescent reporter in a TX-TL reaction",
+      "topo": "crispr",
+      "diff": 5,
+      "struct_score": 92,
+      "bio_score": 65,
+      "verdict": "REPRESENTATION MISMATCH",
+      "reasoning": "Concept is right: DETECTR/SHERLOCK-style Cas12a collateral cleavage of a quenched ssDNA reporter. But the reporter is encoded as a 'cds' with RBS and terminator, i.e. the model represents a ssDNA/oligonucleotide probe as if it were a transcribed+translated protein. Cas12a also lacks the 'activation' interaction from trigger DNA (trigger is exogenous, not in the schema, but the activation step isn't captured). Real TX-TL SHERLOCK has no transcription of the reporter."
+    }
+  ],
+  "aggregate": {
+    "n": 11,
+    "bio_avg": 71.4,
+    "struct_avg": 91.8,
+    "bio_minus_struct": -20.4,
+    "strong_topologies": ["feedback (autoregulation)", "oscillator (repressilator)", "pathway (metabolic)", "simple inducible"],
+    "weak_topologies": ["toggle (logic inversion in both cases)", "kill switch (NAND failure)", "CRISPR sensing (collateral vs direct cleavage confusion)"]
+  },
+  "key_finding": "The structural rubric averages 91.8 on these same items but the biology rubric averages 71.4. The gap is not noise -- it is a systematic class of failures: the model can produce well-formed transcription units with cyclic graphs while implementing the wrong logic (self-repression masquerading as cross-repression; constitutive reporters in a toggle; NAND that is actually OR). Future work: augment the rubric with a logic-fidelity axis that checks whether the interaction signs actually implement the stated behavior."
+}

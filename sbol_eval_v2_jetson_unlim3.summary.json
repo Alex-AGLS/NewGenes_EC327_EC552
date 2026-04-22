@@ -1,0 +1,28 @@
+{
+  "n_total": 3,
+  "n_completed": 3,
+  "n_timeouts": 0,
+  "n_failures": 0,
+  "avg_total": 60.67,
+  "axes_avg": {
+    "SV": 13.33,
+    "BW": 12.67,
+    "BA": 12.0,
+    "PF": 10.67,
+    "DQ": 5.33,
+    "REP": 6.67
+  },
+  "by_difficulty": {
+    "1": 92.0,
+    "3": 0.0,
+    "5": 90.0
+  },
+  "by_organism": {
+    "ecoli": 60.67
+  },
+  "by_topology": {
+    "gate": 0.0,
+    "pathway": 90.0,
+    "reporter": 92.0
+  }
+}
