@@ -1,15 +1,15 @@
-# Our part: Post-PCR protocol templates + expression-mode classifier
+# This part: Post-PCR protocol templates + expression-mode classifier
 
-Part of the **SBOL -> Lab Protocol Generator** project (EC552).
+Part of the **SBOL -> Lab Protocol Generator**.
 
 ## What this handles
 
-The teammates' code produces:
+Templates-&-Output-Instructions branch code produces:
 - `individualParts_sampleOutput.csv` — the parts table (from `structure.get_table`)
 - `pcr_SampleOutput.csv` — PCR primer/temp/time summary (from `structure.get_pcr_info`)
 - `sample.txt` — the PCR protocol text (optional)
 
-Our code takes those outputs and adds **four more protocol steps** on top,
+This code takes those outputs and adds **four more protocol steps** on top,
 producing one combined lab protocol document:
 
 | Step | What it is | Where |
