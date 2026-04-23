@@ -1,0 +1,6 @@
+Component,test_pBAD_GFP_reporter
+name,type,information
+BBa_I0500,promoter,"pBAD promoter (arabinose-inducible)"
+BBa_B0034,ribosome binding site,"Standard RBS"
+BBa_E0040,coding sequence,"GFP reporter"
+BBa_B0015,terminator,"Double terminator"
