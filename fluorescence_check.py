@@ -16,7 +16,6 @@
 # Style: raw f-string, matches structure.py's approach in teammates' code.
 # NO Jinja2 dependency -- keeps the integration simple.
 #
-# Owner: [YOUR NAME]
 # Last updated: 2026-04-21
 # ==============================================================================
 
@@ -44,10 +43,55 @@ def get_fluorescence_check_template(
         A multi-line string. Picks one of four branches based on inputs.
     """
 
-    # --- Branch 1: No reporter in circuit -------------------------------------
-    # If the circuit doesn't contain a fluorescent reporter (GFP/RFP/YFP),
-    # we can't do a visual test. Tell the user to verify by sequencing
-    # instead.
+    # NOTE: branch ordering matters. "unknown promoter" is checked BEFORE
+    # "no reporter" because the unknown case is a higher-priority safety
+    # warning -- if we can't classify the promoter at all, that's more
+    # important to surface than the absence of a reporter. A circuit can
+    # be both (no recognized promoter AND no reporter), in which case the
+    # user needs to know about the unknown promoter first.
+
+    # --- Branch 1: Unknown expression mode (promoter not in library) ---------
+    # The classifier couldn't figure out how to induce this circuit. Emit
+    # a warning and punt the decision to the user. This prevents silent
+    # incorrect output.
+    mode = expression_decision.get("mode")
+    if mode == "unknown":
+        # Build a reporter description that's safe whether or not a
+        # reporter was detected. Many "unknown" circuits also have no
+        # reporter (e.g. BBa_I0462, the teammates' actual sample).
+        if reporter is not None:
+            reporter_line = (
+                f"Detected reporter: {reporter['friendly_name']} "
+                f"(emission ~{reporter['emission_nm']} nm, "
+                f"{reporter['color']})."
+            )
+        else:
+            reporter_line = (
+                "No fluorescent reporter (GFP, RFP, or YFP) was detected "
+                "either, so even after the promoter is identified, a "
+                "visual fluorescence check may not be meaningful."
+            )
+
+        return (
+            f"## Step {step_num}: Functional verification "
+            f"(MANUAL REVIEW REQUIRED)\n"
+            f"\n"
+            f"**WARNING:** The promoter in this circuit could not be\n"
+            f"classified automatically. "
+            f"{expression_decision.get('notes', '')}\n"
+            f"\n"
+            f"A qualified biologist should determine the appropriate\n"
+            f"induction conditions (if any) before running a functional\n"
+            f"check. Do not rely on the default protocol below without\n"
+            f"review.\n"
+            f"\n"
+            f"{reporter_line}\n"
+        )
+
+    # --- Branch 2: No reporter in circuit (but promoter IS recognized) -------
+    # If the circuit's promoter is recognized but there's no fluorescent
+    # reporter (GFP/RFP/YFP), we can't do a visual test. Tell the user to
+    # verify by sequencing instead.
     if reporter is None:
         return (
             f"## Step {step_num}: Functional verification\n"
@@ -65,27 +109,6 @@ def get_fluorescence_check_template(
             f"\n"
             f"*Note: This template was auto-generated. A qualified biologist\n"
             f"should design an appropriate functional assay for this circuit.*\n"
-        )
-
-    # --- Branch 2: Unknown expression mode (promoter not in library) ---------
-    # The classifier couldn't figure out how to induce this circuit. Emit
-    # a warning and punt the decision to the user. This prevents silent
-    # incorrect output.
-    mode = expression_decision.get("mode")
-    if mode == "unknown":
-        return (
-            f"## Step {step_num}: Functional verification (MANUAL REVIEW REQUIRED)\n"
-            f"\n"
-            f"**WARNING:** The promoter in this circuit could not be\n"
-            f"classified automatically. {expression_decision.get('notes', '')}\n"
-            f"\n"
-            f"A qualified biologist should determine the appropriate\n"
-            f"induction conditions (if any) before running a fluorescence\n"
-            f"check. Do not rely on the default protocol below without\n"
-            f"review.\n"
-            f"\n"
-            f"Detected reporter: {reporter['friendly_name']} "
-            f"(emission ~{reporter['emission_nm']} nm, {reporter['color']}).\n"
         )
 
     # --- Branch 3: Constitutive promoter -------------------------------------
