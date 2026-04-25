@@ -1,0 +1,6 @@
+Component,demo_constitutive_gfp
+name,type,information
+BBa_J23100,promoter,"Strong constitutive promoter (Anderson collection)"
+BBa_B0034,ribosome binding site,"Standard RBS"
+BBa_E0040,coding sequence,"GFP reporter"
+BBa_B0015,terminator,"Double terminator"

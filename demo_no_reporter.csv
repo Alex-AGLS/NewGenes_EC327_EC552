@@ -1,0 +1,6 @@
+Component,demo_pTet_no_reporter
+name,type,information
+BBa_R0040,promoter,"pTet (TetR-repressible promoter)"
+BBa_B0034,ribosome binding site,"Standard RBS"
+BBa_C0012,coding sequence,"LacI repressor (transcription factor, not a reporter)"
+BBa_B0015,terminator,"Double terminator"
