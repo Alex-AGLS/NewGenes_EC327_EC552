@@ -1,5 +1,5 @@
 """
-left_pane.py
+left_pane.py contains File Upload and XML Viewer
 ============
 
 A Tkinter Frame for the SBOL Protocol Generator GUI.
