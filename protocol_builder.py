@@ -31,11 +31,11 @@ import os
 from datetime import date
 from typing import Optional
 
-from src.classifier.expression_mode import classify_from_parts_csv
-from src.templates.cloning import get_cloning_template
-from src.templates.transformation import get_transformation_template
-from src.templates.colony_verification import get_colony_verification_template
-from src.templates.fluorescence_check import get_fluorescence_check_template
+from expression_mode import classify_from_parts_csv
+from cloning import get_cloning_template
+from transformation import get_transformation_template
+from colony_verification import get_colony_verification_template
+from fluorescence_check import get_fluorescence_check_template
 
 
 # ==============================================================================
