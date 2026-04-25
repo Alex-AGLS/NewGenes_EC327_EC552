@@ -24,21 +24,21 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.classifier.expression_mode import (
+from expression_mode import (
     classify_expression_mode,
     classify_from_parts_csv,
     KNOWN_REPORTERS,
 )
-from src.templates.cloning import get_cloning_template
-from src.templates.transformation import get_transformation_template
-from src.templates.colony_verification import get_colony_verification_template
-from src.templates.fluorescence_check import get_fluorescence_check_template
-from src.protocol_builder import build_full_protocol
+from cloning import get_cloning_template
+from transformation import get_transformation_template
+from colony_verification import get_colony_verification_template
+from fluorescence_check import get_fluorescence_check_template
+from protocol_builder import build_full_protocol
 
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
-PARTS_CSV = FIXTURES / "individualParts_sampleOutput.csv"
-PCR_CSV   = FIXTURES / "pcr_SampleOutput.csv"
+PARTS_CSV =  Path("individualParts_sampleOutput.csv")
+PCR_CSV   =  Path("pcr_SampleOutput.csv")
 
 
 # ==============================================================================

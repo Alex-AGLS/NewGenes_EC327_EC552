@@ -23,7 +23,7 @@
 import csv
 from typing import Optional, Dict, Any, List, Tuple
 
-from src.data.promoter_induction import PROMOTER_INDUCTION, PROMOTER_ALIASES
+from promoter_induction import PROMOTER_INDUCTION, PROMOTER_ALIASES
 
 
 # ------------------------------------------------------------------------------
