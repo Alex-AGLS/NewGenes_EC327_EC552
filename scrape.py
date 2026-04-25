@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
+
 custom_headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
     'Accept-Language': 'en-US,en;q=0.9',
@@ -12,33 +13,33 @@ custom_headers = {
 
 # 1: promoter; 2: sequence; 3: terminator; 4: ribosome; 5: nothing
 # uses ontobee database, takes id as "SO_???????""
-def get_type(id:str) -> int:
+def get_type(id:str) -> str:
     url = "https://ontobee.org/ontology/SO?iri=http://purl.obolibrary.org/obo/" + id
     response = requests.get(url, headers=custom_headers)
     #print(response.content)
-    print('\n')
+    #print('\n')
     soup = BeautifulSoup(response.content, "xml")
     possible_ls = soup.find_all("rdfs:label")
-    print(possible_ls)
-    print('\n')
+    #print(possible_ls)
+    #print('\n')
     for possible_entry in possible_ls:
         type = possible_entry.contents[0]
         if ('promoter' in str(type)):
-            print(type)
-            return 1
+            #print(type)
+            return "promoter"
         elif 'sequence' in str(type):
-            print(type)
-            return 2
+            #print(type)
+            return "coding sequence"
         elif 'terminator' in str(type):
-            print(type)
-            return 3
+            #print(type)
+            return "terminator"
         elif 'ribosome' in str(type):
-            print(type)
-            return 4
+            #print(type)
+            return "ribosome binding site"
         else:
-            print(type)
-    return 5
-
+            #print(type)
+            pass
+    return ""
 
 
 
@@ -63,7 +64,6 @@ def get_section(id:str, key:str) -> str:
                 possible_entry = possible_entry.parent
                 count += 1
             if (possible_entry != None):
-                results += 'Result: \n'
                 following = possible_entry.find_next_sibling()
                 while True:
                     if (following == None):
@@ -80,6 +80,9 @@ def get_section(id:str, key:str) -> str:
                     following = following.find_next_sibling()
 
     return results
+
+
+
 
 if __name__ == "__main__":
     #tp = get_type("SO_0000139")
