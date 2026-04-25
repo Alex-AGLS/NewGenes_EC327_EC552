@@ -49,7 +49,7 @@ def get_pcr_info(json_path, txt_path, csv_path) -> str:
     temp = temperature(dna_seq)
     time = time_tm(dna_seq)
     [forward, reverse] = build_primers(dna_seq)
-    with open(csv_path, "a", newline='') as file:
+    with open(csv_path, "w", newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["part", "forward primer", "reverse primer", "temperature", "time"])
         writer.writerow([dna_component, forward, reverse, temp, time])

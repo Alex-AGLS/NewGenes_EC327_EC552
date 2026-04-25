@@ -12,10 +12,10 @@ import primer3
 #             print(getter.text)
 
 def temperature(sequence_dna):
-    temp = primer3.bindings.calc_tm(sequence_dna)
+    temp = round(primer3.bindings.calc_tm(sequence_dna), 2)
     return temp
 def time_tm(sequence_dna):
-    time = len(sequence_dna) / 1000 * 60
+    time = round(len(sequence_dna) / 1000 * 60, 2)
     return time 
 
 def build_primers(sequence_dna):
