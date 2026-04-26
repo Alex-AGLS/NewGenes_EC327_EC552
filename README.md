@@ -1,9 +1,5 @@
 # NewGenes EC327/EC552
 
-An LLM-powered educational tool that translates biological design intent into simulated genetic circuits and their electronic analogs.
-
-## Goal
-
 To automate the conversion of biological design specifications into executable wetlab protocols by parsing DNA component designs and generating step-by-step PCR protocols ready for laboratory implementation.
 
 ## Description
