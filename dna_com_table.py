@@ -8,7 +8,6 @@ class left_down(tk.Frame):
         tk.Frame.__init__(self,root)
         self.part_table = part_table
         self.title_label = tk.Label(self, text="", font=("Arial", 14))
-        
         self.table = ttk.Treeview(self)
         self.setup_dna()
 
@@ -51,8 +50,8 @@ class left_down(tk.Frame):
             self.table.pack_forget()
             return
         print("reached")
+        self.table.tag_configure("normal_tag",font = ("Arial", 10))
         self.title_label.config(text="")
-
         self.title = self.load_csv(self.part_table, self.table)
         self.title_label.config(text=self.title)
 
