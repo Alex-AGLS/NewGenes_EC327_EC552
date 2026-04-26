@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://sbols.org/v1#">
+
+  <!-- ==========================================================
+       Top-level composite DnaComponent: pTet driving LacI.
+       Order: pTet promoter -> B0034 RBS -> LacI CDS -> B0015 terminator
+       This circuit produces a transcription factor (LacI), NOT a
+       fluorescent reporter. Demonstrates the no-reporter branch.
+       ========================================================== -->
+  <DnaComponent rdf:about="http://example.org/Part:demo_pTet_LacI">
+    <displayId>demo_pTet_LacI</displayId>
+    <n>pTet-driven LacI regulator</n>
+    <description>pTet promoter driving the lacI repressor.
+    Used as a building block for toggle switches; no fluorescent
+    reporter on this cassette.</description>
+
+    <dnaSequence>
+      <DnaSequence rdf:about="http://example.org/Part:demo_pTet_LacI/seq">
+        <nucleotides>tccctatcagtgatagagattgacatccctatcagtgatagagatactgagcacatcagcaggacgcactgaccgaattcattaaagaggagaaatactagatgaaaccagtaacgttatacgatgtcgcagagtatgccggtgtctcttatcagaccgtttcccgcgtggtgaaccaggccagccacgtttctgcgaaaacgcgggaaaaagtggaagcggcgatggcggagctgaattacattcccaaccgcgtggcacaacaactggcgggcaaacagtcgttgctgattggcgttgccacctccagtctggccctgcacgcgccgtcgcaaattgtcgcggcgattaaatctcgcgccgatcaactgggtgccagcgtggtggtgtcgatggtagaacgaagcggcgtcgaagcctgtaaagcggcggtgcacaatcttctcgcgcaacgcgtcagtgggctgatcattaactatccgctggatgaccaggatgccattgctgtggaagctgcctgcactaatgttccggcgttatttcttgatgtctctgaccagacacccatcaacagtattattttctcccatgaagacggtacgcgactgggcgtggagcatctggtcgcattgggtcaccagcaaatcgcgctgttagcgggcccattaagttctgtctcggcgcgtctgcgtctggctggctggcataaatatctcactcgcaatcaaattcagccgatagcggaacgggaaggcgactggagtgccatgtccggttttcaacaaaccatgcaaatgctgaatgagggcatcgttcccactgcgatgctggttgccaacgatcagatggcgctgggcgcaatgcgcgccattaccgagtccgggctgcgcgttggtgcggatatctcggtagtgggatacgacgataccgaagacagctcatgttatatcccgccgttaaccaccatcaaacaggattttcgcctgctggggcaaaccagcgtggaccgcttgctgcaactctctcagggccaggcggtgaagggcaatcagctgttgcccgtctcactggtgaaaagaaaaaccaccctggcgcccaatacgcaaaccgcctctccccgcgcgttggccgattcattaatgcagctggcacgacaggtttcccgactggaaagcgggcagtgaaaaaaaattaataatactagagccaggcatcaaataaaacgaaaggctcagtcgaaagactgggcctttcgttttatctgttgtttgtcggtgaacgctctctactagagtcacactggctcaccttcgggtgggcctttctgcgtttata</nucleotides>
+      </DnaSequence>
+    </dnaSequence>
+
+    <!-- Sub-component 1: pTet promoter (TetR-repressible, aTc-inducible) -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pTet_LacI/anno1">
+        <bioStart>1</bioStart>
+        <bioEnd>54</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_R0040">
+            <displayId>BBa_R0040</displayId>
+            <n>pTet</n>
+            <description>TetR-repressible promoter (induced by aTc)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000167"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 2: B0034 RBS -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pTet_LacI/anno2">
+        <bioStart>83</bioStart>
+        <bioEnd>94</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0034">
+            <displayId>BBa_B0034</displayId>
+            <n>B0034</n>
+            <description>Standard ribosome binding site</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000139"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 3: LacI coding sequence (NOT a fluorescent reporter) -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pTet_LacI/anno3">
+        <bioStart>95</bioStart>
+        <bioEnd>1180</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_C0012">
+            <displayId>BBa_C0012</displayId>
+            <n>LacI</n>
+            <description>LacI repressor (transcription factor, not a fluorescent reporter)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000316"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 4: B0015 double terminator -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pTet_LacI/anno4">
+        <bioStart>1181</bioStart>
+        <bioEnd>1309</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0015">
+            <displayId>BBa_B0015</displayId>
+            <n>B0015</n>
+            <description>Double terminator</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000141"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+  </DnaComponent>
+</rdf:RDF>

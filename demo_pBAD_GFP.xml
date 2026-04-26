@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://sbols.org/v1#">
+
+  <!-- ==========================================================
+       Top-level composite DnaComponent: an arabinose-inducible
+       GFP reporter circuit.
+       Order: pBAD promoter -> B0034 RBS -> GFP CDS -> B0015 terminator
+       ========================================================== -->
+  <DnaComponent rdf:about="http://example.org/Part:demo_pBAD_GFP">
+    <displayId>demo_pBAD_GFP</displayId>
+    <name>pBAD-driven GFP reporter</name>
+    <description>Arabinose-inducible GFP expression cassette
+    (demo circuit for SBOL Protocol Generator).</description>
+
+    <dnaSequence>
+      <DnaSequence rdf:about="http://example.org/Part:demo_pBAD_GFP/seq">
+        <nucleotides>ttatgacaacttgacggctacatcattcactttttcttcacaaccggcacggaactcgctcgggctggccccggtgcattttttaaatacccgcgagaaatagagttgatcgtcaaaaccaacattgcgaccgactagagaaagaggagaaatactagatgcgtaaaggagaagaacttttcactggagttgtcccaattcttgttgaattagatggtgatgttaatgggcacaaattttctgtcagtggagagggtgaaggtgatgcaacatacggaaaacttacccttaaatttatttgcactactggaaaactacctgttccatggccaacacttgtcactactttcggttatggtgttcaatgctttgcgagatacccagatcatatgaaacagcatgactttttcaagagtgccatgcccgaaggttatgtacaggaaagaactatatttttcaaagatgacgggaactacaagacacgtgctgaagtcaagtttgaaggtgatacccttgttaatagaatcgagttaaaaggtattgattttaaagaagatggaaacattcttggacacaaattggaatacaactataactcacacaatgtatacatcatggcagacaaacaaaagaatggaatcaaagttaacttcaaaattagacacaacattgaagatggaagcgttcaactagcagaccattatcaacaaaatactccaattggcgatggccctgtccttttaccagacaaccattacctgtccacacaatctgccctttcgaaagatcccaacgaaaagagagaccacatggtccttcttgagtttgtaacagctgctgggattacacatggcatggatgaactatacaaataataatactagagccaggcatcaaataaaacgaaaggctcagtcgaaagactgggcctttcgttttatctgttgtttgtcggtgaacgctctctactagagtcacactggctcaccttcgggtgggcctttctgcgtttata</nucleotides>
+      </DnaSequence>
+    </dnaSequence>
+
+    <!-- ==== Sub-component 1: pBAD promoter ==== -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pBAD_GFP/anno1">
+        <bioStart>1</bioStart>
+        <bioEnd>130</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_I0500">
+            <displayId>BBa_I0500</displayId>
+            <name>pBAD</name>
+            <description>Arabinose-inducible promoter (araC-pBAD)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000167"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- ==== Sub-component 2: B0034 RBS ==== -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pBAD_GFP/anno2">
+        <bioStart>131</bioStart>
+        <bioEnd>142</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0034">
+            <displayId>BBa_B0034</displayId>
+            <name>B0034</name>
+            <description>Standard ribosome binding site (Elowitz 1999)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000139"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- ==== Sub-component 3: GFP coding sequence ==== -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pBAD_GFP/anno3">
+        <bioStart>143</bioStart>
+        <bioEnd>862</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_E0040">
+            <displayId>BBa_E0040</displayId>
+            <name>GFP</name>
+            <description>Green fluorescent protein coding sequence</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000316"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- ==== Sub-component 4: B0015 double terminator ==== -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_pBAD_GFP/anno4">
+        <bioStart>863</bioStart>
+        <bioEnd>991</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0015">
+            <displayId>BBa_B0015</displayId>
+            <name>B0015</name>
+            <description>Double terminator (B0010 + B0012)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000141"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+  </DnaComponent>
+</rdf:RDF>

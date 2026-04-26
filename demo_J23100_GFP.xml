@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://sbols.org/v1#">
+
+  <!-- ==========================================================
+       Top-level composite DnaComponent: constitutive GFP reporter.
+       Order: J23100 promoter -> B0034 RBS -> GFP CDS -> B0015 terminator
+       ========================================================== -->
+  <DnaComponent rdf:about="http://example.org/Part:demo_J23100_GFP">
+    <displayId>demo_J23100_GFP</displayId>
+    <n>J23100-driven GFP reporter</n>
+    <description>Constitutive GFP expression cassette
+    (demo circuit for SBOL Protocol Generator).</description>
+
+    <dnaSequence>
+      <DnaSequence rdf:about="http://example.org/Part:demo_J23100_GFP/seq">
+        <nucleotides>ttgacggctagctcagtcctaggtacagtgctagctactagagaaagaggagaaatactagatgcgtaaaggagaagaacttttcactggagttgtcccaattcttgttgaattagatggtgatgttaatgggcacaaattttctgtcagtggagagggtgaaggtgatgcaacatacggaaaacttacccttaaatttatttgcactactggaaaactacctgttccatggccaacacttgtcactactttcggttatggtgttcaatgctttgcgagatacccagatcatatgaaacagcatgactttttcaagagtgccatgcccgaaggttatgtacaggaaagaactatatttttcaaagatgacgggaactacaagacacgtgctgaagtcaagtttgaaggtgatacccttgttaatagaatcgagttaaaaggtattgattttaaagaagatggaaacattcttggacacaaattggaatacaactataactcacacaatgtatacatcatggcagacaaacaaaagaatggaatcaaagttaacttcaaaattagacacaacattgaagatggaagcgttcaactagcagaccattatcaacaaaatactccaattggcgatggccctgtccttttaccagacaaccattacctgtccacacaatctgccctttcgaaagatcccaacgaaaagagagaccacatggtccttcttgagtttgtaacagctgctgggattacacatggcatggatgaactatacaaataataatactagagccaggcatcaaataaaacgaaaggctcagtcgaaagactgggcctttcgttttatctgttgtttgtcggtgaacgctctctactagagtcacactggctcaccttcgggtgggcctttctgcgtttata</nucleotides>
+      </DnaSequence>
+    </dnaSequence>
+
+    <!-- Sub-component 1: J23100 strong constitutive promoter -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_J23100_GFP/anno1">
+        <bioStart>1</bioStart>
+        <bioEnd>35</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_J23100">
+            <displayId>BBa_J23100</displayId>
+            <n>J23100</n>
+            <description>Strong constitutive promoter (Anderson collection)</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000167"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 2: B0034 RBS -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_J23100_GFP/anno2">
+        <bioStart>50</bioStart>
+        <bioEnd>61</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0034">
+            <displayId>BBa_B0034</displayId>
+            <n>B0034</n>
+            <description>Standard ribosome binding site</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000139"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 3: GFP coding sequence -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_J23100_GFP/anno3">
+        <bioStart>62</bioStart>
+        <bioEnd>781</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_E0040">
+            <displayId>BBa_E0040</displayId>
+            <n>GFP</n>
+            <description>Green fluorescent protein coding sequence</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000316"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+    <!-- Sub-component 4: B0015 double terminator -->
+    <annotation>
+      <SequenceAnnotation rdf:about="http://example.org/Part:demo_J23100_GFP/anno4">
+        <bioStart>782</bioStart>
+        <bioEnd>910</bioEnd>
+        <strand>+</strand>
+        <subComponent>
+          <DnaComponent rdf:about="http://example.org/Part:BBa_B0015">
+            <displayId>BBa_B0015</displayId>
+            <n>B0015</n>
+            <description>Double terminator</description>
+            <type rdf:resource="http://purl.obolibrary.org/obo/SO_0000141"/>
+          </DnaComponent>
+        </subComponent>
+      </SequenceAnnotation>
+    </annotation>
+
+  </DnaComponent>
+</rdf:RDF>
