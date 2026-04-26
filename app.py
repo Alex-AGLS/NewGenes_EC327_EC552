@@ -10,23 +10,16 @@ from tkinter import HORIZONTAL, filedialog
 from dna_com_table import left_down
 from protocol_summary import right_up_pane
 from table_summary import right_down_pane
+from protocol_builder import build_full_protocol
 
 HEIGHT = 600
 WIDTH = 800
-BACKGROUND_COLOR = "#2A2A3E"
+BACKGROUND_COLOR = "#EDEDED"
 FONT = ("Helvetica", 10)
 
 def refresh():
     print("refreshing")
     myapp.refresh()
-
-class OPReader(tk.Frame):
-    def __init__(self, master):
-        super().__init__(master, background="blue")
-        self.label = tk.Label(self, text="pane2: reader")
-        self.label.pack()
-    def change_text(self, new_text):
-        self.label.config(text=new_text)
 
 
 class Screen(tk.PanedWindow):
@@ -65,6 +58,8 @@ class Screen(tk.PanedWindow):
         self.viewer.refresh()
         self.xml = None
         self.dna_table.refresh()
+        self.protocol.refresh()
+        self.summary.refresh()
 
     def get_viewer(self):
         return self.viewer
@@ -74,13 +69,17 @@ class Screen(tk.PanedWindow):
         try:
             structure.get_table(xml,csv)
             structure.get_pcr_info("data.json", "sample.txt", "summary.csv")
+            build_full_protocol(csv, "summary.csv", "sample.txt", "full_protocol.md")
         except TypeError:
             messagebox.showerror("XML Input Error", "empty or invalid SBOL XML file")
+            return
+        except FileNotFoundError:
+            messagebox.showerror("file read error", "cannot read csv files")
+            return
         self.dna_table.set_part_table(csv)
-        print(self.dna_table.part_table)
         self.dna_table.setup_dna()
-        self.summary.setup_table()
-        self.protocol.setup_protocol()
+        self.summary.set_table()
+        self.protocol.set_file()
         
 class MenuBtn(tk.Button):
     def __init__(self, master):
