@@ -14,7 +14,6 @@ class right_up_pane(tk.Frame):
         tk.Frame.__init__(self, root)
         self.csv_file = csv_file
         self.table_title = table_title
-        self.setup_table()
 
     def summary_table(self,filename, table):
         with open(filename, 'r', newline = '') as file:

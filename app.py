@@ -2,10 +2,14 @@ from email.headerregistry import HeaderRegistry
 from pydoc import text
 import tkinter as tk
 from tkinter import messagebox
+from turtle import width
 import left_pane
 import structure
 import sv_ttk
 from tkinter import HORIZONTAL, filedialog
+from dna_com_table import left_down
+from protocol_summary import right_up_pane
+from table_summary import right_down_pane
 
 HEIGHT = 600
 WIDTH = 800
@@ -35,24 +39,32 @@ class Screen(tk.PanedWindow):
         # instantiate viewer and reader frames
         left = tk.PanedWindow(content, orient=tk.VERTICAL)
         self.viewer = left_pane.XMLViewer(left)
-        left.add(self.viewer)
-        left.add(OPReader(left))
+        left.add(self.viewer, height=0.65*HEIGHT)
+        self.dna_table = left_down(left, None)
+        left.add(self.dna_table)
         
-        self.right = OPReader(content)
+        
+        
+        right = tk.PanedWindow(content, orient=tk.VERTICAL)
+
+        self.summary = right_up_pane(right)
+        self.protocol = right_down_pane(right)
+
+        right.add(self.summary, height=0.2*HEIGHT)
+        right.add(self.protocol)
 
         content.add(left, width=0.5*WIDTH)
-        content.add(self.right)
+        content.add(right)
 
         self.xml = self.viewer.get_xml_path()
-        self.right.change_text(self.xml)
         header = Header(self, self)
         self.add(header)
         self.add(content)
     
     def refresh(self):
-        self.right.change_text("ghj")
         self.viewer.refresh()
         self.xml = None
+        self.dna_table.refresh()
 
     def get_viewer(self):
         return self.viewer
@@ -64,8 +76,12 @@ class Screen(tk.PanedWindow):
             structure.get_pcr_info("data.json", "sample.txt", "summary.csv")
         except TypeError:
             messagebox.showerror("XML Input Error", "empty or invalid SBOL XML file")
+        self.dna_table.set_part_table(csv)
+        print(self.dna_table.part_table)
+        self.dna_table.setup_dna()
+        self.summary.setup_table()
+        self.protocol.setup_protocol()
         
-
 class MenuBtn(tk.Button):
     def __init__(self, master):
         super().__init__(master, text="Menu",
@@ -121,5 +137,5 @@ root = tk.Tk()
 root.title("SBOL XML -> Wet Lab Protocol")
 root.geometry(str(WIDTH) + "x" + str(HEIGHT))
 myapp = Screen(root)
-sv_ttk.set_theme("dark")
+sv_ttk.set_theme("light")
 root.mainloop()
