@@ -24,10 +24,11 @@ def get_type(id:str) -> str:
     #print('\n')
     for possible_entry in possible_ls:
         type = possible_entry.contents[0]
+        print(type)
         if ('promoter' in str(type)):
             #print(type)
             return "promoter"
-        elif 'sequence' in str(type):
+        elif 'sequence' in str(type) or 'CDS' in str(type):
             #print(type)
             return "coding sequence"
         elif 'terminator' in str(type):
@@ -85,8 +86,8 @@ def get_section(id:str, key:str) -> str:
 
 
 if __name__ == "__main__":
-    #tp = get_type("SO_0000139")
-    #print(tp)
+    tp = get_type("SO_0000316")
+    print(tp)
     #print('\n')
-    result = get_section("BBa_C0062", "repressor")
-    print(result)
+    #result = get_section("BBa_C0062", "repressor")
+    #print(result)
