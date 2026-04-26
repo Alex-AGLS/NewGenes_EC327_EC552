@@ -1,0 +1,8 @@
+.vs
+.vscode
+build
+libSBOL
+vcpkg
+*.xml
+*.csv
+*.txt
