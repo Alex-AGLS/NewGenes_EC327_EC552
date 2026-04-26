@@ -10,11 +10,11 @@ import csv
 # protocol_file = "full_protocol.md"
 
 class right_up_pane(tk.Frame):
-    def __init__(self,root,csv_file = "summary.csv", table_title = "Protocol's data" ):
-        tk.Frame.__init__(self, root)
+    def __init__(self,root,color, csv_file = "summary.csv", table_title = "Protocol's data" ):
+        tk.Frame.__init__(self, root, bg=color,pady=0)
         self.csv_file = csv_file
         self.table_title = table_title
-        self.table_label = tk.Label(self, text = self.table_title, font=("Arial", 14))
+        self.table_label = tk.Label(self, text = self.table_title, font=("Arial", 14), bg=color)
         self.table_sum = ttk.Treeview(self)
         self.empty = True
         self.setup_table()
@@ -33,6 +33,8 @@ class right_up_pane(tk.Frame):
 
     def refresh(self):
         self.empty = True
+        for item in self.table_sum.get_children():
+            self.table_sum.delete(item)
         self.setup_table()
     def set_table(self, csv="summary.csv"):
         self.empty = False
