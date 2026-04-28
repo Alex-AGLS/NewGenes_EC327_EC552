@@ -39,7 +39,12 @@ def parse(xml_path, json_path):
                     # print(nucleotides)                
                 if (elem.tag == "{http://sbols.org/v1#}DnaComponent"):
                     count += 1
-                    name1 = elem.find("default_ns:displayId",ns).text
+                    name = elem.find("default_ns:displayId",ns)
+                    if (name != None):
+                        txt = name.text
+                        
+                        
+                    
                     #UNDO#print(name1)
                     about_value = elem.get("{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about")
                     
@@ -63,7 +68,7 @@ def parse(xml_path, json_path):
                             part_resource = resource_value.split("/")
                             dna_resource_code = part_resource[-1]
                             #UNDO#print(dna_resource_code)
-                            individual_dna["Subcomponent"].append({"DisplayId": name1,
+                            individual_dna["Subcomponent"].append({"DisplayId": txt,
                                                                   "About" : dna_part_code,
                                                                   "Resource": dna_resource_code}
                                                                   )
@@ -75,4 +80,4 @@ def parse(xml_path, json_path):
         #UNDO#print(count) #count
         # individual_dna.append("count": count)
 if __name__ == '__main__':
-    pass
+    parse("BBa_T9002.xml", "data.json")
