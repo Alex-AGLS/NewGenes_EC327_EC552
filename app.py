@@ -15,6 +15,8 @@ from protocol_builder import build_full_protocol
 HEIGHT = 600
 WIDTH = 800
 BACKGROUND_COLOR = "#EDEDED"
+LD_COLOR = "#F0EEEE"
+RIGHT_COLOR = "#F0EEEE"
 FONT = ("Helvetica", 10)
 
 def refresh():
@@ -33,21 +35,21 @@ class Screen(tk.PanedWindow):
         left = tk.PanedWindow(content, orient=tk.VERTICAL)
         self.viewer = left_pane.XMLViewer(left)
         left.add(self.viewer, height=0.65*HEIGHT)
-        self.dna_table = left_down(left, None)
+        self.dna_table = left_down(left, None, LD_COLOR)
         left.add(self.dna_table)
         
         
         
-        right = tk.PanedWindow(content, orient=tk.VERTICAL)
+        right = tk.PanedWindow(content, orient=tk.VERTICAL, relief="flat", background=RIGHT_COLOR)
 
-        self.summary = right_up_pane(right)
-        self.protocol = right_down_pane(right)
+        self.summary = right_up_pane(right, RIGHT_COLOR)
+        self.protocol = right_down_pane(right, RIGHT_COLOR)
 
         right.add(self.summary, height=0.2*HEIGHT)
         right.add(self.protocol)
 
-        content.add(left, width=0.5*WIDTH)
-        content.add(right)
+        content.add(left,width=0.5*WIDTH, padx=5, pady=5)
+        content.add(right, padx=5, pady=5)
 
         self.xml = self.viewer.get_xml_path()
         header = Header(self, self)
@@ -89,7 +91,6 @@ class MenuBtn(tk.Button):
             cursor="hand2", command=self.show_menu)
         self.menu = tk.Menu(master, tearoff=0)
         self.menu.add_command(label="Refresh", command=refresh)
-        self.menu.add_command(label="Settings", command=lambda: print("Opening Settings..."))
         self.menu.add_separator()
         self.menu.add_command(label="Exit", command=root.quit)
     def show_menu(self):
